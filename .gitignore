@@ -1,0 +1,12 @@
+node_modules/
+.next/
+dist/
+.venv/
+__pycache__/
+*.pyc
+.env
+.env.local
+data/public/*.csv
+data/public/*.zip
+*.pdf
+.DS_Store

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ApplySafe proposal — Muhammad Umer Aamir</title>
+  <style>
+    @page { size: letter; margin: 0.7in; }
+    body { font: 11px/1.38 "Times New Roman", Times, serif; color: #111; max-width: 7.3in; margin: 0 auto; padding: 18px; }
+    h1 { font-size: 16px; margin: 0 0 4px; }
+    .sub { font-size: 12px; font-weight: 600; margin: 0 0 10px; }
+    h2 { font-size: 12.5px; margin: 12px 0 6px; border-bottom: 1px solid #ccc; }
+    p, li { margin: 0 0 6px; }
+    ul { margin: 0 0 6px; padding-left: 1.2em; }
+    table { width: 100%; border-collapse: collapse; font-size: 10.5px; margin: 6px 0; }
+    th, td { border: 1px solid #bbb; padding: 3px 6px; vertical-align: top; text-align: left; }
+    .meta { font-size: 10.5px; color: #333; margin-bottom: 10px; }
+    a { color: #114; }
+    @media print { body { padding: 0; } }
+  </style>
+</head>
+<body>
+  <h1>Project proposal: ApplySafe</h1>
+  <p class="sub">A Canada-first job-scam detection tool for international students</p>
+  <p class="meta">
+    <strong>Muhammad Umer Aamir</strong> · MAC, Wilfrid Laurier University (Brantford) · 6 October 2026<br />
+    My own independent project — comments only, not supervision. GitHub: <a href="https://github.com/umeraamir69">github.com/umeraamir69</a> ·
+    <a href="https://github.com/umeraamir69/applysafe">applysafe</a> ·
+    related: <a href="https://github.com/umeraamir69/secsentry">secsentry</a>,
+    <a href="https://urduplagdetect.vercel.app">Urdu text-reuse demo</a>
+  </p>
+
+  <h2>1. The problem</h2>
+  <p>International students and PGWP holders in Ontario are a documented target of employment and immigration-adjacent fraud. Harm includes early requests for a SIN, passport, or void cheque on Telegram/WhatsApp; Interac-in / crypto-out mule and counterfeit-cheque patterns (Canadian Anti-Fraud Centre); worker-paid “LMIA / guaranteed job / PR” schemes; and crypto “task / boost” jobs that impersonate real Canadian firms (CAFC, May 2024).</p>
+  <p>IRCC and campus offices already publish checklists. Students do not open a PDF while a recruiter is waiting in chat. ChatGPT is a weak control: it is not on the job page, it is not tested, it misses Canada-specific terms (SIN, Interac, LMIA), it leaks the message, and a formal header or “signature” often makes it call the offer legitimate.</p>
+  <p><strong>Gap:</strong> a small, explainable, Canada-specific tool that highlights <em>why</em> a message is risky and can be evaluated on a public set.</p>
+
+  <h2>2. What I propose to build</h2>
+  <p><strong>ApplySafe</strong> — paste a posting or recruiter message (or scan the current tab) → <strong>scam / risky / unclear / looks-ok</strong>, with triggering phrases highlighted.</p>
+  <table>
+    <tr><th>Layer</th><th>Role</th></tr>
+    <tr><td>Rule engine</td><td>Judge. Public CAFC/IRCC/Settlement.org flags. Hard rules cannot be overridden by a model.</td></tr>
+    <tr><td>Brain</td><td>TF–IDF + logistic regression for paraphrases. May lift unclear → risky only. Not ChatGPT.</td></tr>
+    <tr><td>Evidence</td><td>Per-scan: domain age (RDAP), email vs claimed brand, one GET to a careers URL the user typed. Not a LinkedIn scrape.</td></tr>
+    <tr><td>API + website</td><td><code>POST /v1/scan</code>; Next.js paste UI; privacy page; disclaimer.</td></tr>
+    <tr><td>Chrome (MV3)</td><td>User-gesture scan on Indeed.ca / LinkedIn. Rules on device.</td></tr>
+    <tr><td>ApplySafe-CA</td><td>500 synthetic Canadian texts, published (GitHub + Hugging Face, CC BY 4.0).</td></tr>
+  </table>
+  <p><strong>Not:</strong> legal/IRCC advice; work-permit eligibility; bulk job-board scraping; an LLM as the verdict. A new domain is a signal, not “the company is fake.”</p>
+
+  <h2>3. What we get if it works</h2>
+  <ul>
+    <li><strong>Students:</strong> a warning in the path (page / paste box), not a poster.</li>
+    <li><strong>MAC:</strong> a public Canadian artefact (URL, API, dataset, write-up). Optional campus workshop after a privacy check.</li>
+    <li><strong>Learning:</strong> tested rules, small model, API, extension, published data — next to SecSentry and the Urdu demo.</li>
+    <li><strong>Research (modest):</strong> a labelled synthetic benchmark and an eval table (rules vs brain vs mix vs a frozen ChatGPT pass on 50 holdout rows). Not a claim of SOTA.</li>
+  </ul>
+
+  <h2>4. How realistic is this?</h2>
+  <p>Realistic as a part-time term build. I am not proposing real victim chats or a production anti-fraud platform.</p>
+  <table>
+    <tr><th>In favour</th><th>Constraint</th></tr>
+    <tr><td>Rules map to public government text</td><td>Phrases go stale — that is why a small brain exists</td></tr>
+    <tr><td>500 synthetic rows is a writing task</td><td>Must not copy official pages or live ads</td></tr>
+    <tr><td>EMSCAD (~18k, 2012–14) for a baseline comparison</td><td>Not Canadian; I will say so</td></tr>
+    <tr><td>Next.js, sklearn, Chrome MV3 are familiar</td><td>Store review can lag; unpacked GitHub zip is the fallback</td></tr>
+  </table>
+  <p><strong>Success bar:</strong> 500-row public set; live site; working API; holdout eval table; extension submitted or unpacked. I will not call it “AI that detects all scams.”</p>
+
+  <h2>5. Ethics</h2>
+  <p>Disclaimer on every result; report to CAFC (1-888-495-8501). No ID images or raw SIN in storage; logs are a hash of the text. Dataset is synthetic so it can be published. If offered to Laurier students, I will treat it as a personal tool until advised on privacy/ethics.</p>
+
+  <h2>6. Timeline (summary)</h2>
+  <table>
+    <tr><th>Window</th><th>Work</th></tr>
+    <tr><td>Oct</td><td>Repo, rules, engine tests, live paste website, Scan API</td></tr>
+    <tr><td>Nov</td><td>Brain, evidence lookups, Chrome extension, publish 500-row set</td></tr>
+    <tr><td>This term</td><td>Public MVP: site + API + dataset + extension (store or unpacked)</td></tr>
+  </table>
+
+  <h2>7. What I am asking</h2>
+  <p>This is <strong>my own project</strong>. I only want comments on whether it is worth building. I am not asking you to supervise it. If you have comments and want to talk, I can come to office hours or we can schedule a short call.</p>
+  <ol>
+    <li>Is the rules-first + small classifier split sound?</li>
+    <li>Is a synthetic 500-row set acceptable to publish?</li>
+    <li>Any ethics/branding issue if I mention Laurier or offer the tool to international students?</li>
+    <li>If the design is weak, what would you change without exploding the scope?</li>
+  </ol>
+
+  <h2>References (public)</h2>
+  <p>CAFC job fraud (crypto-task alert, 30 May 2024); IRCC fraud / newcomers pages; Settlement.org (Ontario) fake online jobs; Vidros et al., EMSCAD, <em>Future Internet</em>, 2017; CBC/IJF reporting on sold or fake LMIA offers (2024–25).</p>
+</body>
+</html>
