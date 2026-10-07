@@ -8,5 +8,6 @@ __pycache__/
 .env.local
 data/public/*.csv
 data/public/*.zip
+data/public/emscad/fake_job_postings.csv
 *.pdf
 .DS_Store

@@ -10,9 +10,9 @@ Do not send until there is a live demo (site or `curl /v1/scan`). Then attach a 
 Copy everything below the line. Use your **@mylaurier.ca** address.
 
 **Attach this (2-page proposal):**
-1. Open `job-prep/applysafe-proposal.html` in Chrome.
+1. Open `docs/proposal.html` in Chrome.
 2. File → Print → Destination: **Save as PDF** → `ApplySafe-proposal.pdf`.
-3. Attach that PDF. (The editable source is `job-prep/applysafe-proposal.md`.)
+3. Attach that PDF. (The editable source is `docs/proposal.md`.)
 
 ---
 
@@ -45,6 +45,6 @@ Muhammad Umer Aamir
 
 ---
 
-**If he replies “send more”:** attach `applysafe-research.md` (or say you can walk through it).  
+**If he replies “send more”:** attach `docs/research.md` (or say you can walk through it).  
 **If he has no time:** thank him; the project still proceeds as a personal build.  
 **Do not** ask him to supervise or call it his project.

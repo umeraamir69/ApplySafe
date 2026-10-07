@@ -226,6 +226,8 @@ Store as `data/rules/ca/*.yml` with `source_url` and `retrieved_date` on every r
 **B. EMSCAD (baseline ML only, not the product truth)**  
 Employment Scam Aegean Dataset (Vidros et al., *Future Internet*, 2017): ~17,880 ads, **866 fraudulent**, 2012–2014. Kaggle mirror: `shivamb/real-or-fake-fake-jobposting-prediction`.
 
+Training file: **every fraudulent ad (866) plus 866 legitimate ads** drawn from the 17,014 real ones, seed `42`. That keeps both classes equal and still uses the full scam side. A pre-cut 500/500 file drops fraudulent ads, so week 1 builds this balance from the full mirror. See [dataset-howto.md](dataset-howto.md).
+
 Use it to:
 
 - prove you can train a text classifier;
@@ -234,7 +236,7 @@ Use it to:
 Do **not** claim EMSCAD is Canadian or current.
 
 **C. ApplySafe-CA gold set (you build this — this is the real dataset)**  
-**Two packs:** **1000 downloaded** (EMSCAD sample — not scraped) + **500 written** (ApplySafe-CA). See `applysafe-dataset-howto.md`. Week 1 still starts at 30 written rows so tests exist.
+**Two packs:** **1,732 downloaded** (866 fraudulent + 866 legitimate) + **500 written** (ApplySafe-CA). See [dataset-howto.md](dataset-howto.md). Week 1 still starts at 30 written rows so tests exist.
 
 
 | Split | n | How |
@@ -586,9 +588,9 @@ Publish a table in the README: **rules vs EMSCAD-logistic vs “ask GPT”** on 
 
 
 
-## 12. Build plan (one winter slot, ~5–6 weeks at 8–10 hrs/week)
+## 12. Build plan (sketch — the live schedule is docs/plan.md)
 
-Do not start until SecSentry v1 extras and Urdu README are done.
+The locked calendar is [plan.md](plan.md): code 13 Oct, public MVP 1 Dec, Security+ freeze 7–12 Dec. The table below is the older sketch. If they differ, follow the plan.
 
 
 | Week | Deliverable |

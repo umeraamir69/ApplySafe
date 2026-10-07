@@ -1,0 +1,15 @@
+---
+description: Never run git commit, push, or any GitHub action; ask the user to do it
+alwaysApply: true
+---
+
+# Git and GitHub stay with the user
+
+The GitHub repo already exists: `https://github.com/umeraamir69/ApplySafe.git` (`origin` on `main`).
+
+Do not do GitHub or git write actions. That includes:
+
+- `git commit`, `git add`, `git push`
+
+
+When work should be saved or published, stop and ask the user to commit and push. Say which files changed. Do not run the commands yourself.

@@ -1,0 +1,682 @@
+{
+  "n": 17880,
+  "fraud": 866,
+  "legit": 17014,
+  "base_rate_pct": 4.84,
+  "selected_n": 1732,
+  "selected_fraud": 866,
+  "selected_legit": 866,
+  "seed": 42,
+  "missing": {
+    "location": {
+      "fraud_pct": 2.2,
+      "legit_pct": 1.9
+    },
+    "department": {
+      "fraud_pct": 61.3,
+      "legit_pct": 64.8
+    },
+    "salary_range": {
+      "fraud_pct": 74.2,
+      "legit_pct": 84.5
+    },
+    "company_profile": {
+      "fraud_pct": 67.8,
+      "legit_pct": 16.0
+    },
+    "description": {
+      "fraud_pct": 0.1,
+      "legit_pct": 0.0
+    },
+    "requirements": {
+      "fraud_pct": 17.7,
+      "legit_pct": 14.9
+    },
+    "benefits": {
+      "fraud_pct": 41.9,
+      "legit_pct": 40.3
+    },
+    "employment_type": {
+      "fraud_pct": 27.8,
+      "legit_pct": 19.0
+    },
+    "required_experience": {
+      "fraud_pct": 50.2,
+      "legit_pct": 38.9
+    },
+    "required_education": {
+      "fraud_pct": 52.1,
+      "legit_pct": 45.0
+    },
+    "industry": {
+      "fraud_pct": 31.8,
+      "legit_pct": 27.2
+    },
+    "function": {
+      "fraud_pct": 38.9,
+      "legit_pct": 36.0
+    }
+  },
+  "flags": {
+    "telecommuting": {
+      "fraud_yes_pct": 7.4,
+      "legit_yes_pct": 4.1,
+      "fraud_rate_when_yes": 8.34,
+      "fraud_rate_when_no": 4.69,
+      "n_yes": 767
+    },
+    "has_company_logo": {
+      "fraud_yes_pct": 32.7,
+      "legit_yes_pct": 81.9,
+      "fraud_rate_when_yes": 1.99,
+      "fraud_rate_when_no": 15.93,
+      "n_yes": 14220
+    },
+    "has_questions": {
+      "fraud_yes_pct": 28.9,
+      "legit_yes_pct": 50.2,
+      "fraud_rate_when_yes": 2.84,
+      "fraud_rate_when_no": 6.78,
+      "n_yes": 8792
+    }
+  },
+  "len_fraud": {
+    "median": 1654,
+    "p25": 949,
+    "p75": 2877,
+    "mean": 2074
+  },
+  "len_legit": {
+    "median": 2564,
+    "p25": 1640,
+    "p75": 3497,
+    "mean": 2701
+  },
+  "len_series": [
+    {
+      "label": "under 400",
+      "fraud_pct": 4.0,
+      "legit_pct": 0.9
+    },
+    {
+      "label": "400\u20131,499",
+      "fraud_pct": 42.4,
+      "legit_pct": 20.1
+    },
+    {
+      "label": "1,500\u20133,999",
+      "fraud_pct": 41.3,
+      "legit_pct": 62.4
+    },
+    {
+      "label": "4,000+",
+      "fraud_pct": 12.2,
+      "legit_pct": 16.5
+    }
+  ],
+  "keywords": [
+    {
+      "keyword": "sin",
+      "fraud": 0,
+      "legit": 2
+    },
+    {
+      "keyword": "social insurance",
+      "fraud": 0,
+      "legit": 4
+    },
+    {
+      "keyword": "interac",
+      "fraud": 0,
+      "legit": 0
+    },
+    {
+      "keyword": "e-transfer",
+      "fraud": 0,
+      "legit": 0
+    },
+    {
+      "keyword": "etransfer",
+      "fraud": 0,
+      "legit": 0
+    },
+    {
+      "keyword": "lmia",
+      "fraud": 0,
+      "legit": 0
+    },
+    {
+      "keyword": "telegram",
+      "fraud": 0,
+      "legit": 0
+    },
+    {
+      "keyword": "whatsapp",
+      "fraud": 0,
+      "legit": 57
+    },
+    {
+      "keyword": "bitcoin",
+      "fraud": 0,
+      "legit": 18
+    },
+    {
+      "keyword": "usdt",
+      "fraud": 0,
+      "legit": 0
+    },
+    {
+      "keyword": "gift card",
+      "fraud": 0,
+      "legit": 3
+    },
+    {
+      "keyword": "western union",
+      "fraud": 0,
+      "legit": 5
+    },
+    {
+      "keyword": "passport",
+      "fraud": 1,
+      "legit": 742
+    },
+    {
+      "keyword": "wire transfer",
+      "fraud": 0,
+      "legit": 40
+    },
+    {
+      "keyword": "moneygram",
+      "fraud": 0,
+      "legit": 22
+    },
+    {
+      "keyword": "mystery shopper",
+      "fraud": 0,
+      "legit": 12
+    },
+    {
+      "keyword": "urgent",
+      "fraud": 34,
+      "legit": 327
+    },
+    {
+      "keyword": "no experience",
+      "fraud": 43,
+      "legit": 97
+    },
+    {
+      "keyword": "work from home",
+      "fraud": 85,
+      "legit": 157
+    }
+  ],
+  "countries": [
+    {
+      "label": "US",
+      "n": 10656,
+      "fraud": 730,
+      "rate": 6.85
+    },
+    {
+      "label": "GB",
+      "n": 2384,
+      "fraud": 23,
+      "rate": 0.96
+    },
+    {
+      "label": "GR",
+      "n": 940,
+      "fraud": 0,
+      "rate": 0.0
+    },
+    {
+      "label": "CA",
+      "n": 457,
+      "fraud": 12,
+      "rate": 2.63
+    },
+    {
+      "label": "DE",
+      "n": 383,
+      "fraud": 0,
+      "rate": 0.0
+    },
+    {
+      "label": "(missing)",
+      "n": 346,
+      "fraud": 19,
+      "rate": 5.49
+    },
+    {
+      "label": "NZ",
+      "n": 333,
+      "fraud": 0,
+      "rate": 0.0
+    },
+    {
+      "label": "IN",
+      "n": 276,
+      "fraud": 4,
+      "rate": 1.45
+    },
+    {
+      "label": "AU",
+      "n": 214,
+      "fraud": 40,
+      "rate": 18.69
+    },
+    {
+      "label": "PH",
+      "n": 132,
+      "fraud": 1,
+      "rate": 0.76
+    },
+    {
+      "label": "NL",
+      "n": 127,
+      "fraud": 0,
+      "rate": 0.0
+    },
+    {
+      "label": "BE",
+      "n": 117,
+      "fraud": 0,
+      "rate": 0.0
+    }
+  ],
+  "canada_n": 457,
+  "canada_fraud": 12,
+  "dup_groups": 83,
+  "dup_rows": 321,
+  "empty_desc_fraud": 1,
+  "empty_desc_legit": 0,
+  "sample_check": {
+    "logo_all_legit": 81.9,
+    "logo_sample": 82.7,
+    "questions_all_legit": 50.2,
+    "questions_sample": 50.1,
+    "remote_all_legit": 4.1,
+    "remote_sample": 3.8,
+    "salary_missing_all_legit": 84.5,
+    "salary_missing_sample": 84.8
+  },
+  "emp_series": [
+    {
+      "label": "Full-time",
+      "fraud_pct": 56.6,
+      "legit_pct": 65.4
+    },
+    {
+      "label": "Part-time",
+      "fraud_pct": 8.5,
+      "legit_pct": 4.2
+    },
+    {
+      "label": "Contract",
+      "fraud_pct": 5.1,
+      "legit_pct": 8.7
+    },
+    {
+      "label": "Temporary",
+      "fraud_pct": 0.2,
+      "legit_pct": 1.4
+    },
+    {
+      "label": "Other",
+      "fraud_pct": 1.7,
+      "legit_pct": 1.2
+    },
+    {
+      "label": "(missing)",
+      "fraud_pct": 27.8,
+      "legit_pct": 19.0
+    }
+  ],
+  "industries": [
+    {
+      "label": "(missing)",
+      "n": 4903,
+      "fraud": 275,
+      "rate": 5.61
+    },
+    {
+      "label": "Oil & Energy",
+      "n": 287,
+      "fraud": 109,
+      "rate": 37.98
+    },
+    {
+      "label": "Accounting",
+      "n": 159,
+      "fraud": 57,
+      "rate": 35.85
+    },
+    {
+      "label": "Hospital & Health Care",
+      "n": 497,
+      "fraud": 51,
+      "rate": 10.26
+    },
+    {
+      "label": "Marketing and Advertising",
+      "n": 828,
+      "fraud": 45,
+      "rate": 5.43
+    },
+    {
+      "label": "Financial Services",
+      "n": 779,
+      "fraud": 35,
+      "rate": 4.49
+    },
+    {
+      "label": "Information Technology and Services",
+      "n": 1734,
+      "fraud": 32,
+      "rate": 1.85
+    },
+    {
+      "label": "Telecommunications",
+      "n": 342,
+      "fraud": 26,
+      "rate": 7.6
+    }
+  ],
+  "functions": [
+    {
+      "label": "(missing)",
+      "n": 6455,
+      "fraud": 337,
+      "rate": 5.22
+    },
+    {
+      "label": "Administrative",
+      "n": 630,
+      "fraud": 119,
+      "rate": 18.89
+    },
+    {
+      "label": "Engineering",
+      "n": 1348,
+      "fraud": 113,
+      "rate": 8.38
+    },
+    {
+      "label": "Customer Service",
+      "n": 1229,
+      "fraud": 67,
+      "rate": 5.45
+    },
+    {
+      "label": "Sales",
+      "n": 1468,
+      "fraud": 41,
+      "rate": 2.79
+    },
+    {
+      "label": "Other",
+      "n": 325,
+      "fraud": 32,
+      "rate": 9.85
+    },
+    {
+      "label": "Information Technology",
+      "n": 1749,
+      "fraud": 32,
+      "rate": 1.83
+    },
+    {
+      "label": "Accounting/Auditing",
+      "n": 212,
+      "fraud": 29,
+      "rate": 13.68
+    }
+  ],
+  "experience": [
+    {
+      "label": "(missing)",
+      "n": 7050,
+      "fraud": 435,
+      "rate": 6.17
+    },
+    {
+      "label": "Entry level",
+      "n": 2697,
+      "fraud": 179,
+      "rate": 6.64
+    },
+    {
+      "label": "Mid-Senior level",
+      "n": 3809,
+      "fraud": 113,
+      "rate": 2.97
+    },
+    {
+      "label": "Not Applicable",
+      "n": 1116,
+      "fraud": 60,
+      "rate": 5.38
+    },
+    {
+      "label": "Associate",
+      "n": 2297,
+      "fraud": 42,
+      "rate": 1.83
+    },
+    {
+      "label": "Director",
+      "n": 389,
+      "fraud": 17,
+      "rate": 4.37
+    },
+    {
+      "label": "Executive",
+      "n": 141,
+      "fraud": 10,
+      "rate": 7.09
+    },
+    {
+      "label": "Internship",
+      "n": 381,
+      "fraud": 10,
+      "rate": 2.62
+    }
+  ],
+  "exp_series": [
+    {
+      "label": "(missing)",
+      "fraud_pct": 50.2,
+      "legit_pct": 38.9
+    },
+    {
+      "label": "Mid-Senior level",
+      "fraud_pct": 13.0,
+      "legit_pct": 21.7
+    },
+    {
+      "label": "Entry level",
+      "fraud_pct": 20.7,
+      "legit_pct": 14.8
+    },
+    {
+      "label": "Associate",
+      "fraud_pct": 4.8,
+      "legit_pct": 13.3
+    },
+    {
+      "label": "Not Applicable",
+      "fraud_pct": 6.9,
+      "legit_pct": 6.2
+    },
+    {
+      "label": "Director",
+      "fraud_pct": 2.0,
+      "legit_pct": 2.2
+    },
+    {
+      "label": "Internship",
+      "fraud_pct": 1.2,
+      "legit_pct": 2.2
+    }
+  ],
+  "education": [
+    {
+      "label": "(missing)",
+      "n": 8105,
+      "fraud": 451,
+      "rate": 5.56
+    },
+    {
+      "label": "High School or equivalent",
+      "n": 2080,
+      "fraud": 170,
+      "rate": 8.17
+    },
+    {
+      "label": "Bachelor's Degree",
+      "n": 5145,
+      "fraud": 100,
+      "rate": 1.94
+    },
+    {
+      "label": "Unspecified",
+      "n": 1397,
+      "fraud": 61,
+      "rate": 4.37
+    },
+    {
+      "label": "Master's Degree",
+      "n": 416,
+      "fraud": 31,
+      "rate": 7.45
+    },
+    {
+      "label": "Some High School Coursework",
+      "n": 27,
+      "fraud": 20,
+      "rate": 74.07
+    },
+    {
+      "label": "Certification",
+      "n": 170,
+      "fraud": 19,
+      "rate": 11.18
+    },
+    {
+      "label": "Associate Degree",
+      "n": 274,
+      "fraud": 6,
+      "rate": 2.19
+    },
+    {
+      "label": "Professional",
+      "n": 74,
+      "fraud": 4,
+      "rate": 5.41
+    },
+    {
+      "label": "Some College Coursework Completed",
+      "n": 102,
+      "fraud": 3,
+      "rate": 2.94
+    }
+  ],
+  "employment": [
+    {
+      "label": "Full-time",
+      "n": 11620,
+      "fraud": 490,
+      "rate": 4.22
+    },
+    {
+      "label": "(missing)",
+      "n": 3471,
+      "fraud": 241,
+      "rate": 6.94
+    },
+    {
+      "label": "Part-time",
+      "n": 797,
+      "fraud": 74,
+      "rate": 9.28
+    },
+    {
+      "label": "Contract",
+      "n": 1524,
+      "fraud": 44,
+      "rate": 2.89
+    },
+    {
+      "label": "Other",
+      "n": 227,
+      "fraud": 15,
+      "rate": 6.61
+    },
+    {
+      "label": "Temporary",
+      "n": 241,
+      "fraud": 2,
+      "rate": 0.83
+    }
+  ],
+  "examples": [
+    {
+      "job_id": 99,
+      "title": "IC&E Technician",
+      "location": "US, , Stocton, CA",
+      "logo": 1,
+      "industry": "Oil & Energy"
+    },
+    {
+      "job_id": 145,
+      "title": "Forward Cap.",
+      "location": "",
+      "logo": 0,
+      "industry": "\u2014"
+    },
+    {
+      "job_id": 174,
+      "title": "Technician Instrument & Controls ",
+      "location": "US",
+      "logo": 1,
+      "industry": "Electrical/Electronic Manufacturing"
+    },
+    {
+      "job_id": 181,
+      "title": "Sales Executive",
+      "location": "PK, SD, Karachi",
+      "logo": 0,
+      "industry": "\u2014"
+    },
+    {
+      "job_id": 216,
+      "title": "IC&E Technician Mt Poso",
+      "location": "US, CA, Bakersfield, CA / Mt. Poso",
+      "logo": 1,
+      "industry": "Oil & Energy"
+    },
+    {
+      "job_id": 358,
+      "title": "Financing Auto(car) sales",
+      "location": "US, IL, hazelcrest",
+      "logo": 0,
+      "industry": "Automotive"
+    },
+    {
+      "job_id": 494,
+      "title": "Admin Assistant/ Receptionist ",
+      "location": "US, CA, Los Angeles",
+      "logo": 0,
+      "industry": "Computer Software"
+    },
+    {
+      "job_id": 538,
+      "title": "Technology Consultant - Outside Sales  ",
+      "location": "US, OH, ",
+      "logo": 0,
+      "industry": "Information Technology and Services"
+    }
+  ],
+  "jsonl_bytes": 4959848
+}

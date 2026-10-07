@@ -17,7 +17,7 @@ Paste a posting or message (or scan the current tab) → **scam / risky / unclea
 **Not:** LinkedIn/Indeed scrape. Not ChatGPT as the verdict. A new domain is a signal, not “the company is fake.”
 
 ## Links
-- Proposal and plan live in the student’s job-prep notes until the first release
+- [Plan](docs/plan.md) · [Research](docs/research.md) · [Dataset howto](docs/dataset-howto.md)
 - Report real fraud: [Canadian Anti-Fraud Centre](https://antifraudcentre-centreantifraude.ca) · 1-888-495-8501
 
 ## Author

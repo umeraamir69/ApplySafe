@@ -96,7 +96,7 @@ A **labelled synthetic benchmark** + an eval table: rules vs brain vs mix vs a f
 | 24 Nov – 1 Dec | Blog, harden, **public launch 1 Dec** |
 | 7–12 Dec | Security+ exam — feature freeze |
 
-Full calendar: `applysafe-plan.md` (in my job-prep folder). Technical freeze: `applysafe-research.md`.
+Full calendar: [docs/plan.md](plan.md). Technical detail: [docs/research.md](research.md). The plan wins if the two schedules differ.
 
 ---
 

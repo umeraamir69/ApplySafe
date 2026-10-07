@@ -1,14 +1,16 @@
-# How to make the data (1000 public + 500 ours)
+# How to make the data (EMSCAD balanced + 500 ours)
 
-**Yes — 1000 from public files + 500 you write. No scraping live job sites.**
+**866 fraudulent + 866 legitimate from the public file, plus 500 you write. No scraping live job sites.**
 
-Almost every Kaggle “fake job” set is the **same** EMSCAD dump under a new name. Download **once**. Do not scrape Indeed/LinkedIn/Kijiji and call it a dataset.
+Almost every Kaggle “fake job” set is the **same** EMSCAD dump under a new name. Download the original mirror **once**. Do not scrape Indeed/LinkedIn/Kijiji and call it a dataset.
+
+The original EMSCAD file (Vidros et al. 2017) has **17,880** ads: **866 fraudulent** and **17,014 legitimate**, from 2012–2014. It is not Canadian.
 
 | Pack | n | Where | What it is |
 |---|---|---|---|
-| **Public-1000** | 1000 | Hugging Face `gplsi/fake_job_postings_balanced_en` (or Kaggle `shivamb/real-or-fake-fake-jobposting-prediction`) | **500 fraudulent + 500 legitimate** sampled from EMSCAD (2012–14, not Canada). License: treat as the original research set; cite Vidros et al. 2017. |
+| **EMSCAD balanced** | 1,732 | Kaggle `shivamb/real-or-fake-fake-jobposting-prediction` | **Every** fraudulent row, plus the **same number** of legitimate rows (866 + 866). Seed `42`. Cite Vidros et al. 2017. |
 | **ApplySafe-CA** | 500 | You write | Canada / SIN / Interac / LMIA / Telegram. This is the set you **publish** as yours. |
-| **Total for the brain** | 1500 | — | Train on public-1000 + 450 of yours. Hold out 50 of yours. |
+| **Total for the brain** | 2,182 | — | Train on the 1,732 + 450 of yours. Hold out 50 of yours. |
 
 Optional extras (only if the license is clear and it is **not** another EMSCAD copy): Kaggle `sohaibdevv/detecting-fake-job-postings-and-internship-scams` (1k). Open 20 rows first. If it looks AI-slop or scraped Indeed, skip it.
 
@@ -19,7 +21,7 @@ Map public labels: `fraudulent=1` → `scam`, `fraudulent=0` → `looks_ok`. The
 Keep files separate:
 
 ```text
-data/public/emscad1000.jsonl    # downloaded, cited, not “ours”
+data/public/emscad/emscad-balanced.jsonl    # 866 fake + 866 real, cited, not “ours”
 data/gold/applysafe-ca.jsonl    # 500 you wrote, CC BY 4.0
 ```
 
