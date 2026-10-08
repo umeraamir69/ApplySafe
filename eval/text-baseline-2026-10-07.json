@@ -1,0 +1,402 @@
+{
+  "hold_labels": {
+    "scam": 24,
+    "looks_ok": 14,
+    "unclear": 6,
+    "risky": 6
+  },
+  "train_scam": 221,
+  "majority_class": "not_scam",
+  "binary": [
+    {
+      "name": "majority",
+      "precision_scam": 0.0,
+      "recall_scam": 0.0,
+      "f1_scam": 0.0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 24,
+      "tn": 26,
+      "n_scam": 24,
+      "n": 50
+    },
+    {
+      "name": "applysafe_450",
+      "precision_scam": 1.0,
+      "recall_scam": 1.0,
+      "f1_scam": 1.0,
+      "tp": 24,
+      "fp": 0,
+      "fn": 0,
+      "tn": 26,
+      "n_scam": 24,
+      "n": 50
+    },
+    {
+      "name": "emscad_only",
+      "precision_scam": 0.5,
+      "recall_scam": 0.917,
+      "f1_scam": 0.647,
+      "tp": 22,
+      "fp": 22,
+      "fn": 2,
+      "tn": 4,
+      "n_scam": 24,
+      "n": 50
+    },
+    {
+      "name": "emscad_plus_450",
+      "precision_scam": 1.0,
+      "recall_scam": 1.0,
+      "f1_scam": 1.0,
+      "tp": 24,
+      "fp": 0,
+      "fn": 0,
+      "tn": 26,
+      "n_scam": 24,
+      "n": 50
+    }
+  ],
+  "ca_errors": [],
+  "four_class": [
+    {
+      "label": "scam",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 24
+    },
+    {
+      "label": "risky",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 6
+    },
+    {
+      "label": "unclear",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 6
+    },
+    {
+      "label": "looks_ok",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 14
+    }
+  ],
+  "cm4_labels": [
+    "scam",
+    "risky",
+    "unclear",
+    "looks_ok"
+  ],
+  "cm4": [
+    [
+      24,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      6,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      6,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      14
+    ]
+  ],
+  "nearest_top": [
+    {
+      "id": "as-ca-0047",
+      "label": "unclear",
+      "jaccard": 0.565,
+      "neighbor": "as-ca-0398"
+    },
+    {
+      "id": "as-ca-0050",
+      "label": "looks_ok",
+      "jaccard": 0.517,
+      "neighbor": "as-ca-0479"
+    },
+    {
+      "id": "as-ca-0029",
+      "label": "scam",
+      "jaccard": 0.429,
+      "neighbor": "as-ca-0218"
+    },
+    {
+      "id": "as-ca-0036",
+      "label": "looks_ok",
+      "jaccard": 0.4,
+      "neighbor": "as-ca-0486"
+    },
+    {
+      "id": "as-ca-0039",
+      "label": "looks_ok",
+      "jaccard": 0.4,
+      "neighbor": "as-ca-0496"
+    },
+    {
+      "id": "as-ca-0042",
+      "label": "unclear",
+      "jaccard": 0.4,
+      "neighbor": "as-ca-0394"
+    }
+  ],
+  "n_hold_jaccard_ge_0.4": 6,
+  "emscad_fn": [
+    {
+      "id": "as-ca-0013",
+      "split": "official_scam",
+      "label": "scam",
+      "pred": "not_scam",
+      "p_scam": 0.484,
+      "rules": [
+        "mule.cheque_split",
+        "mule.forward_funds",
+        "title.cafc_classic"
+      ],
+      "text": "Lantern Wrap will pay you to drive with an ad on the car. First we courier a cheque for $2,400. Deposit it, keep $400, and e-transfer the rest to the installer. Stay in this Telegr"
+    },
+    {
+      "id": "as-ca-0029",
+      "split": "recruiter_dm",
+      "label": "scam",
+      "pred": "not_scam",
+      "p_scam": 0.475,
+      "rules": [
+        "id.passport_chat",
+        "proc.no_interview_hired"
+      ],
+      "text": "Start tomorrow. There is no interview. Text a photo of your passport and study permit to this number so a badge can be printed."
+    }
+  ],
+  "emscad_fp": [
+    {
+      "id": "as-ca-0005",
+      "split": "looks_ok",
+      "label": "looks_ok",
+      "pred": "scam",
+      "p_scam": 0.53,
+      "rules": [],
+      "text": "Maple Desk Ltd (Kitchener) is hiring a junior backend co-op for Winter 2027. Apply on mapledesk.ca/careers. First step is a 30-minute Zoom with the eng manager. We do not ask for S"
+    },
+    {
+      "id": "as-ca-0006",
+      "split": "hard_negative",
+      "label": "looks_ok",
+      "pred": "scam",
+      "p_scam": 0.523,
+      "rules": [],
+      "text": "From hr@mapledesk.ca: welcome aboard. After you sign the attached offer, PeopleOps will collect your SIN for the Record of Employment and T4, as required. Interview already complet"
+    },
+    {
+      "id": "as-ca-0007",
+      "split": "unclear",
+      "label": "unclear",
+      "pred": "scam",
+      "p_scam": 0.703,
+      "rules": [],
+      "text": "Hiring customer support. Must be eligible to work in Canada. Email your resume to the manager. Pay competitive. Remote."
+    },
+    {
+      "id": "as-ca-0023",
+      "split": "recruiter_dm",
+      "label": "risky",
+      "pred": "scam",
+      "p_scam": 0.561,
+      "rules": [
+        "ch.telegram_only",
+        "proc.no_interview_hired"
+      ],
+      "text": "You are hired for night audit at Huron Night Desk. Do not email anyone. Stay on this Telegram. There will not be a phone call. The site address comes tomorrow."
+    },
+    {
+      "id": "as-ca-0027",
+      "split": "recruiter_dm",
+      "label": "risky",
+      "pred": "scam",
+      "p_scam": 0.566,
+      "rules": [
+        "ch.webmail_as_hr"
+      ],
+      "text": "The Shopify Careers team is writing from shopify.people.desk@gmail.com because the main inbox is migrating. Reply to this Gmail and we will book you. Do not write to a shopify.com "
+    },
+    {
+      "id": "as-ca-0030",
+      "split": "recruiter_dm",
+      "label": "risky",
+      "pred": "scam",
+      "p_scam": 0.501,
+      "rules": [
+        "ch.telegram_only",
+        "proc.unsolicited"
+      ],
+      "text": "I can only use Telegram. The other message was just to find you. Tell me your city and the job details will come in this chat. No forms yet."
+    },
+    {
+      "id": "as-ca-0033",
+      "split": "looks_ok",
+      "label": "looks_ok",
+      "pred": "scam",
+      "p_scam": 0.578,
+      "rules": [],
+      "text": "Ridgeline Robotics in Waterloo is hiring a backend intern. Apply at ridgelinerobotics.ca/jobs. You meet the engineering manager on Zoom for 30 minutes, then an afternoon on site if"
+    },
+    {
+      "id": "as-ca-0034",
+      "split": "looks_ok",
+      "label": "looks_ok",
+      "pred": "scam",
+      "p_scam": 0.53,
+      "rules": [],
+      "text": "Kinlock Foods in Brantford has a production co-op for the fall term. The posting is on kinlockfoods.ca/careers. Interviews are in the plant with the shift supervisor. Resumes go to"
+    },
+    {
+      "id": "as-ca-0035",
+      "split": "looks_ok",
+      "label": "looks_ok",
+      "pred": "scam",
+      "p_scam": 0.623,
+      "rules": [],
+      "text": "From hr@sablefreight.ca. Sable Freight is hiring a part-time support clerk in Hamilton. Read sablefreight.ca/careers, then book a phone screen with the support lead. A paid trial s"
+    },
+    {
+      "id": "as-ca-0036",
+      "split": "looks_ok",
+      "label": "looks_ok",
+      "pred": "scam",
+      "p_scam": 0.547,
+      "rules": [],
+      "text": "Elm Court Hotels in London, Ontario is hiring a front-desk co-op. Details are at elmcourt.ca/careers. The interview is in the hotel lobby with the front-office manager. Use the car"
+    },
+    {
+      "id": "as-ca-0037",
+      "split": "looks_ok",
+      "label": "looks_ok",
+      "pred": "scam",
+      "p_scam": 0.561,
+      "rules": [],
+      "text": "Quill and Oak Books in Kitchener needs a Saturday bookseller. Apply at quillandoak.ca/jobs. The owner interviews in the shop. The store does not use chat apps for hiring. Questions"
+    },
+    {
+      "id": "as-ca-0039",
+      "split": "looks_ok",
+      "label": "looks_ok",
+      "pred": "scam",
+      "p_scam": 0.551,
+      "rules": [],
+      "text": "Westwind Solar in Guelph is hiring a junior analyst. The posting is westwindsolar.ca/careers. The panel is a video call with two engineers. Write to careers@westwindsolar.ca. Do no"
+    },
+    {
+      "id": "as-ca-0040",
+      "split": "looks_ok",
+      "label": "looks_ok",
+      "pred": "scam",
+      "p_scam": 0.533,
+      "rules": [],
+      "text": "Lakeshore Analytics in Mississauga is hiring a data co-op for summer 2027. Apply at lakeshoreanalytics.ca/careers. You will have a 45-minute video call with the hiring manager. Con"
+    },
+    {
+      "id": "as-ca-0041",
+      "split": "unclear",
+      "label": "unclear",
+      "pred": "scam",
+      "p_scam": 0.713,
+      "rules": [],
+      "text": "Office assistant wanted. Must be eligible to work in Canada. Send a resume to the Gmail address on the flyer. Hours vary. The shop name is not on the flyer."
+    },
+    {
+      "id": "as-ca-0042",
+      "split": "unclear",
+      "label": "unclear",
+      "pred": "scam",
+      "p_scam": 0.568,
+      "rules": [],
+      "text": "Lumen Draft is a two-person studio hiring a part-time social poster at $18 an hour. Send a resume to lumendraft.jobs@gmail.com. If it fits, we do a Google Meet. No payment and no d"
+    },
+    {
+      "id": "as-ca-0043",
+      "split": "unclear",
+      "label": "risky",
+      "pred": "scam",
+      "p_scam": 0.612,
+      "rules": [
+        "pay.too_good"
+      ],
+      "text": "Remote data entry is open to anyone in Canada. No experience needed. $42 an hour. Reply with your city. No app to install in this message."
+    },
+    {
+      "id": "as-ca-0044",
+      "split": "unclear",
+      "label": "risky",
+      "pred": "scam",
+      "p_scam": 0.648,
+      "rules": [
+        "ch.telegram_only",
+        "proc.unsolicited"
+      ],
+      "text": "New roles drop in this Telegram every morning. DM the admin to be considered. The posts do not name a company. No fee is mentioned."
+    },
+    {
+      "id": "as-ca-0045",
+      "split": "unclear",
+      "label": "unclear",
+      "pred": "scam",
+      "p_scam": 0.564,
+      "rules": [],
+      "text": "Seeking a dishwasher. Must live in Brantford. Evening shifts. Ask for the manager. No company name and no website on the note."
+    },
+    {
+      "id": "as-ca-0046",
+      "split": "unclear",
+      "label": "unclear",
+      "pred": "scam",
+      "p_scam": 0.554,
+      "rules": [],
+      "text": "A Waterloo startup is hiring a general helper. Message on WhatsApp or by email, either is fine. Pay will be discussed. The company name was cut off the bottom of the poster."
+    },
+    {
+      "id": "as-ca-0047",
+      "split": "unclear",
+      "label": "unclear",
+      "pred": "scam",
+      "p_scam": 0.539,
+      "rules": [],
+      "text": "Thanks for stopping at the campus booth. Send a resume and a course list to the address on the card. Payroll details come later, after an interview. This note does not ask for a SI"
+    },
+    {
+      "id": "as-ca-0049",
+      "split": "hard_negative",
+      "label": "looks_ok",
+      "pred": "scam",
+      "p_scam": 0.571,
+      "rules": [],
+      "text": "From payroll@sablefreight.ca. Payday is the last Friday of the month. Wages are sent by Interac e-Transfer from this address. This is your salary. Do not forward it to anyone. Ques"
+    },
+    {
+      "id": "as-ca-0050",
+      "split": "hard_negative",
+      "label": "looks_ok",
+      "pred": "scam",
+      "p_scam": 0.539,
+      "rules": [],
+      "text": "Kinlock Foods is hiring a line cook in Brantford. The company uses the LMIA program and Kinlock pays the government fee. Applicants pay nothing. Apply at kinlockfoods.ca/careers. T"
+    }
+  ]
+}

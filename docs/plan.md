@@ -118,7 +118,7 @@ Catalogue is in research §9. Week 1 implements that list, not a longer one.
 
 Every sentence is invented. No real SIN, phone, classmate, HR inbox, live ad, or copied government paragraph. Fake orgs only (`Maple Desk Ltd`, `hr@mapledesk.ca`).
 
-Running total: 30 optional this week, then 80 → 160 → 240 → 340 → 420 → **500 by 27 November**. About 12 new rows on a build day, 15 on Sunday. Holdout ids are reserved in week 1 even if the text is filled later.
+Running total: the **500** rows are in `data/gold/applysafe-ca.jsonl` as of 7 Oct 2026. The first 50 are the holdout. Hugging Face upload is still week 6, after a fresh PII read.
 
 Eval bar on the 50, before launch: precision on scam ≥ 0.90, recall on scam ≥ 0.80, mix recall at least as high as rules-only, precision still ≥ 0.90. One unit test per hard rule.
 
@@ -142,7 +142,7 @@ No app. No repo yet.
 
 - [ ] One-page CVs exported. GitHub profile cleaned (pinned repos, no empty noise).
 - [ ] Read the CAFC job-fraud page and the IRCC fraud hub. Write a phrase list in a notes file (SIN, Interac, LMIA, cheque, crypto task). YAML comes next week.
-- [ ] Optional: **30** gold rows in that notes file, using the templates in dataset-howto. Include a few holdout-shaped ids so week 1 is typing, not inventing.
+- [x] Holdout rows `as-ca-0001`–`as-ca-0050` and the other 450 are in `data/gold/applysafe-ca.jsonl` (7 Oct 2026). Do not train on the first 50.
 - [ ] NeetCode minimum still happens.
 - [ ] Leave the email to Dr. Mir unsent until a live demo exists (`email-prof-usama.md`).
 
@@ -207,7 +207,7 @@ No app. No repo yet.
 
 ### Week 6 · 17–23 Nov · 500 rows
 
-- [ ] Gold at **500**. Read random rows for real PII and copied official text.
+- [ ] Gold file already has **500** rows (7 Oct). Read a random sample again for real PII and copied official text before upload.
 - [ ] Hugging Face `umeraamir69/applysafe-ca` and a dataset card.
 - [ ] README: diagram, threat model, API, eval table, “why the model is not the judge.”
 - [ ] Pin the repo.
