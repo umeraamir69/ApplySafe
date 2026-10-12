@@ -1,0 +1,16 @@
+id: id.sin_early
+weight: hard
+family: identity_harvest
+source_url: https://antifraudcentre-centreantifraude.ca/scams-fraudes/job-emploi-eng.htm
+patterns:
+  - '\bsend(?:ing)?\b[\s\S]{0,40}\bsin\b'
+  - '\b(?:reply with|text|attach|photograph)\b[\s\S]{0,40}\bsin\b'
+  - '\b(?:photo|picture|scan)\b[\s\S]{0,40}\bsin\b'
+  - '\bsin\b[\s\S]{0,30}\b(?:photo|picture|scan|in the chat|in this chat|in this thread)\b'
+  - '\bsocial insurance\b'
+  - '\b(?:your|the) SIN\b'
+  - '\bSIN (?:now|by text|before|plus|in the chat)\b'
+suppress:
+  - '\b(?:record of employment|\bT4\b|payroll portal|payroll system|new-hire form|HRIS|written offer|signed the offer|signed offer|offer you signed|after you sign|you signed|inside the portal|SIN only|not requested|will take your SIN)\b'
+  - '\bdo not (?:send|photograph|ask|put)\b'
+  - '\bonly after\b'

@@ -1,0 +1,10 @@
+id: crypto.task_boost
+weight: hard
+family: crypto_task
+source_url: https://antifraudcentre-centreantifraude.ca/scams-fraudes/job-emploi-eng.htm
+all_of:
+  - '\b(?:product-boost|boost(?:er| tasks| app| wallet| job)?|task app|tasks|task earnings|like products|rate apps|product ratings|withdrawals?)\b'
+  - '\b(?:USDT|withdraw|gift card|Steam|balance|fee|cash-out|cash out|verification deposit)\b'
+patterns:
+  - '\bproduct-boost\b'
+  - '\bboost (?:tasks|app|wallet|job)\b'

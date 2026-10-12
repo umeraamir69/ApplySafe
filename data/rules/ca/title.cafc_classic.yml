@@ -1,0 +1,13 @@
+id: title.cafc_classic
+weight: soft
+family: mule
+source_url: https://antifraudcentre-centreantifraude.ca/scams-fraudes/job-emploi-eng.htm
+patterns:
+  - '\bmystery[ -]?shop'
+  - '\bsecret shopper'
+  - '\bcar wrap\b'
+  - '\bcar-wrap\b'
+  - '\bwrap your car\b'
+  - '\bad on the car\b'
+  - '\bfinancial agent'
+  - '\bsurvey clerk\b'

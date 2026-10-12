@@ -1,0 +1,15 @@
+id: pay.crypto_or_gift
+weight: hard
+family: money_out
+source_url: https://antifraudcentre-centreantifraude.ca/scams-fraudes/job-emploi-eng.htm
+patterns:
+  - '\bUSDT\b'
+  - '\bbitcoin\b'
+  - '\b(?:steam|itunes|google play|amazon)\s+cards?\b'
+  - '\bgift cards?\b'
+  - '\bprepaid (?:cards?|mastercard)\b'
+  - '\bvisa cards?\b'
+  - '\bgoogle play\b'
+  - '\bcrypto\b'
+suppress:
+  - '\b(?:does not ask you to buy bitcoin|not asked to (?:transfer|load)|tracks bitcoin|stores bitcoin|about crypto|help pages about crypto|crypto wallets)\b'

@@ -1,0 +1,11 @@
+id: gov.impersonate
+weight: hard
+family: immigration_doc
+source_url: https://www.canada.ca/en/immigration-refugees-citizenship/services/protect-fraud.html
+all_of:
+  - '\b(?:IRCC|Service Canada|CRA|RCMP|federal office)\b'
+  - '\b(?:SIN|passport|fee|gift|deposit|Telegram|pay|text|social insurance|\$\s*\d|\d+\s+dollars)\b'
+patterns:
+  - '\b(?:IRCC|Service Canada|CRA|RCMP)\b[\s\S]{0,40}\b(?:Document Unit|Hiring Desk|recruitment|officer|lookalike)\b'
+  - '\bsocial insurance\b[\s\S]{0,100}\b(?:fee|activate)\b'
+  - '\bgovernment call-?centre\b'

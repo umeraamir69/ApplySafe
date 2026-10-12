@@ -1,0 +1,30 @@
+id: mule.forward_funds
+weight: hard
+family: mule
+source_url: https://antifraudcentre-centreantifraude.ca/scams-fraudes/job-emploi-eng.htm
+patterns:
+  - '\bInteracs?\b[\s\S]{0,80}\b(?:the rest|bitcoin|forward|wire|crypto)\b'
+  - '\be-transfers?\b[\s\S]{0,80}\b(?:crypto|bitcoin|forward|the rest)\b'
+  - '\b(?:keep|deposit|cut)\b[\s\S]{0,70}\b(?:e-transfer the rest|Interac the rest|wire|forward the balance|rest back)\b'
+  - '\b(?:forward|send) the (?:rest|balance|remainder)\b'
+  - '\bturn the rest into Bitcoin\b'
+  - '\be-transfer the rest\b'
+  - '\bforward them\b'
+  - '\brest back to me\b'
+  - '\be-transfer the\b'
+  - '\btransfer the remainder\b'
+  - '\bWestern Union\b'
+  - '\bsend crypto\b'
+  - '\bkeep your cut\b'
+  - '\bdeposit and forward\b'
+  - '\bturns Interac into\b'
+  - '\bInterac headquarters\b'
+  - '\bremainder goes\b'
+  - '\bForward the Interac\b'
+  - '\breturn the (?:funds|money|extra)\b'
+  - '\bwire the leftover\b'
+  - '\bInteracs?\b[\s\S]{0,80}\bUSDT\b'
+  - '\bInterac the\b'
+  - '\bonward\b'
+suppress:
+  - '\b(?:wages are sent by Interac|salary[\s\S]{0,40}Interac|Interac e-Transfer from|this is your salary|it is pay|do not forward|not as money you must move|not a client float|it is wages)\b'

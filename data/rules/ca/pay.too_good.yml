@@ -1,0 +1,8 @@
+id: pay.too_good
+weight: soft
+family: process
+source_url: https://antifraudcentre-centreantifraude.ca/scams-fraudes/job-emploi-eng.htm
+patterns:
+  - '\$\s*(?:3[5-9]|[4-9]\d)\s+an hour'
+  - '\b(?:no experience|remote)[\s\S]{0,40}\$\s*(?:3[5-9]|[4-9]\d)\b'
+  - '\$\s*(?:3[5-9]|[4-9]\d)\b[\s\S]{0,40}\b(?:no experience|remote|data entry)\b'

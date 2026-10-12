@@ -1,0 +1,19 @@
+id: pay.upfront_fee
+weight: hard
+family: money_out
+source_url: https://antifraudcentre-centreantifraude.ca/scams-fraudes/job-emploi-eng.htm
+patterns:
+  - '\b(?:training|uniform|badge|placement|equipment|headset|shoe|kit|locker|handbook|onboarding|agency|processing|scanner)\b[\s\S]{0,40}\b(?:fee|deposit)\b'
+  - '\b(?:fee|deposit)\b[\s\S]{0,40}\b(?:uniform|training|badge|kit|scanner)\b'
+  - '\bpay(?:ing)?\b[\s\S]{0,24}\$\s*\d+'
+  - '\bsend\s+\$\s*\d+'
+  - '\$\s*\d+[\s\S]{0,40}\b(?:fee|deposit|uniform|kit)\b'
+  - '\b\d+\s+dollars\b[\s\S]{0,40}\b(?:stamp|fee|permit|passport)\b'
+  - '\bpayroll setup\b'
+  - '\bprocessing fee\b'
+  - '\b(?:bond|invoice|paid here|lab coat fee|file fee|convenience fee)\b'
+  - '\be-transfer\s+\$\s*\d+'
+  - '\bkeeps\s+\$\s*\d+'
+  - '\$\s*\d+'
+suppress:
+  - '\b(?:training is paid|paid time|do not send a training deposit|no fee to apply|no fee|nothing is due|applicants pay nothing|an hour|a assignment)\b'

@@ -1,0 +1,11 @@
+id: id.passport_chat
+weight: hard
+family: identity_harvest
+source_url: https://antifraudcentre-centreantifraude.ca/scams-fraudes/job-emploi-eng.htm
+patterns:
+  - '\b(?:send|text|reply|attach|photograph|demands)\b[\s\S]{0,50}\b(?:passport|study permit|student permit)\b'
+  - '\b(?:photo|picture|scan)\b[\s\S]{0,40}\b(?:passport|study permit|student permit)\b'
+  - '\b(?:passport|study permit|student permit)\b[\s\S]{0,30}\b(?:photo|picture|scan|here|in the chat|in this chat)\b'
+  - '\bPassport next\b'
+suppress:
+  - '\b(?:bring your passport|bring government photo ID|bring your study permit|on day one|day one|day-one|morning one|in person|after the offer is signed|offer is signed|signed the offer|signed offer|do not send a photo|do not take passport|leave the document)\b'

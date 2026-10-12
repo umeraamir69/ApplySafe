@@ -1,0 +1,10 @@
+id: proc.unsolicited
+weight: soft
+family: process
+source_url: https://settlement.org/ontario/daily-life/consumer-protection/consumer-protection-basics/how-to-identify-fake-online-jobs/
+patterns:
+  - '\bunsolicited\b'
+  - '\bcold (?:note|text|message)\b'
+  - '\bfound your (?:profile|resume)\b'
+  - '\bsaw your resume\b'
+  - '\brandom (?:text|offer)\b'

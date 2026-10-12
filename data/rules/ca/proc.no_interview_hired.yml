@@ -1,0 +1,11 @@
+id: proc.no_interview_hired
+weight: soft
+family: process
+source_url: https://settlement.org/ontario/daily-life/consumer-protection/consumer-protection-basics/how-to-identify-fake-online-jobs/
+patterns:
+  - '\bno interview\b'
+  - '\byou(?:''| a)?re hired\b'
+  - '\byou are hired\b'
+  - '\bno (?:phone )?call\b'
+  - '\bstart tomorrow\b'
+  - '\bskip the interview\b'

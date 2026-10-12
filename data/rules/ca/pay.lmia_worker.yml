@@ -1,0 +1,13 @@
+id: pay.lmia_worker
+weight: hard
+family: money_out
+source_url: https://www.canada.ca/en/immigration-refugees-citizenship/services/protect-fraud.html
+all_of:
+  - '\b(?:LMIAs?|labour-market|labor-market|employer filing|work permit|job offer|guaranteed PR|PR path|the offer)\b'
+  - '\b(?:you pay|paid by you|paid by the workers?|buyer pays|your cost|for sale|buy the|\bsell\b|\bsold\b|attachment fee|price\s+\d|\d{4,}\s*CAD|[1-9]\d{3,4}|from you)\b'
+patterns:
+  - '\bfor \d{4,5}\s*CAD\b'
+  - '\bcaregiver approval\b'
+  - '\b\d{4,5} from you\b'
+suppress:
+  - '\b(?:pays the (?:LMIA|government)|pay the LMIA fee itself|applicants pay nothing|never pay an LMIA|do not pay|you do not buy|the company pays|pays any immigration fee|pays employer)\b'
