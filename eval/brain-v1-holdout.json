@@ -1,0 +1,17 @@
+{
+  "version": "brain_v1",
+  "n_train": 2182,
+  "n_train_gold": 450,
+  "n_train_emscad": 1732,
+  "n_holdout": 50,
+  "holdout": "as-ca-0001..as-ca-0050",
+  "threshold": 0.5,
+  "task": "scam vs every other label",
+  "precision_scam": 1.0,
+  "recall_scam": 1.0,
+  "tp": 24,
+  "fp": 0,
+  "fn": 0,
+  "tn": 26,
+  "note": "Holdout rows were not fit. This is the frozen 50, not a live-chat score."
+}

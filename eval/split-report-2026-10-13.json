@@ -1,0 +1,263 @@
+{
+  "date": "2026-10-13",
+  "split": {
+    "gold_n": 500,
+    "holdout_n": 50,
+    "holdout_ids": "as-ca-0001..as-ca-0050",
+    "holdout_id_overlap_with_manifest": [],
+    "manifest_matches_gold450_plus_all_emscad": true,
+    "exact_text_copies_in_train": [],
+    "exact_text_copy_count": 0,
+    "holdout_by_label": {
+      "scam": 24,
+      "looks_ok": 14,
+      "unclear": 6,
+      "risky": 6
+    },
+    "holdout_by_split": {
+      "official_scam": 12,
+      "news_scam": 6,
+      "recruiter_dm": 10,
+      "looks_ok": 10,
+      "hard_negative": 4,
+      "unclear": 8
+    },
+    "train_gold_scam": 221,
+    "train_gold_n": 450,
+    "emscad_in_brain_v1_train": 1732,
+    "highest_token_overlap": [
+      {
+        "id": "as-ca-0047",
+        "max_jaccard_vs_train_gold": 0.636
+      },
+      {
+        "id": "as-ca-0050",
+        "max_jaccard_vs_train_gold": 0.548
+      },
+      {
+        "id": "as-ca-0036",
+        "max_jaccard_vs_train_gold": 0.45
+      },
+      {
+        "id": "as-ca-0032",
+        "max_jaccard_vs_train_gold": 0.423
+      },
+      {
+        "id": "as-ca-0038",
+        "max_jaccard_vs_train_gold": 0.417
+      },
+      {
+        "id": "as-ca-0045",
+        "max_jaccard_vs_train_gold": 0.4
+      },
+      {
+        "id": "as-ca-0049",
+        "max_jaccard_vs_train_gold": 0.395
+      },
+      {
+        "id": "as-ca-0039",
+        "max_jaccard_vs_train_gold": 0.389
+      }
+    ]
+  },
+  "gold_holdout": {
+    "n": 50,
+    "what": "Frozen ApplySafe-CA ids as-ca-0001 through as-ca-0050. Not used to fit brain_v1.",
+    "binary_scam_vs_other": {
+      "majority_not_scam": {
+        "precision_scam": 0.0,
+        "recall_scam": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 24,
+        "tn": 26
+      },
+      "rules": {
+        "precision_scam": 1.0,
+        "recall_scam": 1.0,
+        "tp": 24,
+        "fp": 0,
+        "fn": 0,
+        "tn": 26
+      },
+      "brain_v1_at_0.5": {
+        "precision_scam": 1.0,
+        "recall_scam": 1.0,
+        "tp": 24,
+        "fp": 0,
+        "fn": 0,
+        "tn": 26
+      },
+      "mix": {
+        "precision_scam": 1.0,
+        "recall_scam": 1.0,
+        "tp": 24,
+        "fp": 0,
+        "fn": 0,
+        "tn": 26
+      }
+    },
+    "four_class": {
+      "rules": [
+        {
+          "label": "scam",
+          "support": 24,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "tp": 24,
+          "fp": 0,
+          "fn": 0
+        },
+        {
+          "label": "risky",
+          "support": 6,
+          "precision": 0.8571,
+          "recall": 1.0,
+          "f1": 0.9231,
+          "tp": 6,
+          "fp": 1,
+          "fn": 0
+        },
+        {
+          "label": "unclear",
+          "support": 6,
+          "precision": 0.5,
+          "recall": 0.8333,
+          "f1": 0.625,
+          "tp": 5,
+          "fp": 5,
+          "fn": 1
+        },
+        {
+          "label": "looks_ok",
+          "support": 14,
+          "precision": 1.0,
+          "recall": 0.6429,
+          "f1": 0.7826,
+          "tp": 9,
+          "fp": 0,
+          "fn": 5
+        }
+      ],
+      "mix": [
+        {
+          "label": "scam",
+          "support": 24,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "tp": 24,
+          "fp": 0,
+          "fn": 0
+        },
+        {
+          "label": "risky",
+          "support": 6,
+          "precision": 0.8571,
+          "recall": 1.0,
+          "f1": 0.9231,
+          "tp": 6,
+          "fp": 1,
+          "fn": 0
+        },
+        {
+          "label": "unclear",
+          "support": 6,
+          "precision": 0.5,
+          "recall": 0.8333,
+          "f1": 0.625,
+          "tp": 5,
+          "fp": 5,
+          "fn": 1
+        },
+        {
+          "label": "looks_ok",
+          "support": 14,
+          "precision": 1.0,
+          "recall": 0.6429,
+          "f1": 0.7826,
+          "tp": 9,
+          "fp": 0,
+          "fn": 5
+        }
+      ]
+    },
+    "brain_p_scam_by_gold_label": {
+      "scam": {
+        "n": 24,
+        "min": 0.6641,
+        "max": 0.9048
+      },
+      "risky": {
+        "n": 6,
+        "min": 0.1496,
+        "max": 0.3943
+      },
+      "unclear": {
+        "n": 6,
+        "min": 0.1077,
+        "max": 0.4185
+      },
+      "looks_ok": {
+        "n": 14,
+        "min": 0.0247,
+        "max": 0.3968
+      }
+    },
+    "mix_lifts": 0,
+    "rules_verdict_counts": {
+      "scam": 24,
+      "looks_ok": 9,
+      "unclear": 10,
+      "risky": 7
+    }
+  },
+  "emscad_held_out": {
+    "what": "Real EMSCAD ads, 2012\u20132014, mostly not Canadian. 20% stratified by label, seed 42, held out of a second fit.",
+    "n_test": 346,
+    "n_test_scam": 173,
+    "n_test_looks_ok": 173,
+    "n_fit": 1836,
+    "fit": "ApplySafe-CA 450 + EMSCAD train slice. Gold holdout excluded. This fit is not brain_v1.",
+    "diagnostic_brain_at_0.5": {
+      "precision_scam": 0.9277,
+      "recall_scam": 0.8902,
+      "tp": 154,
+      "fp": 12,
+      "fn": 19,
+      "tn": 161
+    },
+    "shipped_brain_v1_on_same_slice_but_those_rows_were_in_its_training": {
+      "precision_scam": 1.0,
+      "recall_scam": 0.9711,
+      "tp": 168,
+      "fp": 0,
+      "fn": 5,
+      "tn": 173
+    },
+    "canada_rules_on_same_slice": {
+      "precision_scam": 0.6897,
+      "recall_scam": 0.3468,
+      "tp": 60,
+      "fp": 27,
+      "fn": 113,
+      "tn": 146
+    },
+    "rules_verdict_counts": {
+      "unclear": 259,
+      "scam": 87
+    },
+    "rows_with_any_rule_hit": 87,
+    "diagnostic_p_scam": {
+      "scam_min": 0.1697,
+      "scam_max": 0.966,
+      "legit_min": 0.0376,
+      "legit_max": 0.6595
+    }
+  },
+  "bar": {
+    "precision_scam": 0.9,
+    "recall_scam": 0.8
+  }
+}
