@@ -1,0 +1,50 @@
+{"id":"as-ca-0001","verdict":"scam","why":"The sender asks for photos of the SIN and study permit immediately without an interview or established onboarding process."}
+{"id":"as-ca-0002","verdict":"scam","why":"The sender asks the recipient to deposit a cheque, keep a fee, and forward the remaining money to a vendor."}
+{"id":"as-ca-0003","verdict":"scam","why":"The sender demands $18,000 for an LMIA job offer and promises a PR path without an interview."}
+{"id":"as-ca-0004","verdict":"scam","why":"The sender requires a cryptocurrency payment to unlock withdrawals from supposed product-boost earnings."}
+{"id":"as-ca-0005","verdict":"looks_ok","why":"The message provides a company careers site, company email, and a scheduled engineering-manager interview before collecting sensitive information."}
+{"id":"as-ca-0006","verdict":"looks_ok","why":"After a completed interview and signed offer, the company explains that SIN collection will occur for payroll and tax records."}
+{"id":"as-ca-0007","verdict":"unclear","why":"The message describes a generic remote support job but provides no identifiable company, company email, or interview details."}
+{"id":"as-ca-0008","verdict":"scam","why":"The sender demands a $350 training and uniform deposit by e-transfer before providing a work schedule."}
+{"id":"as-ca-0009","verdict":"scam","why":"The sender demands a SIN, passport photo, and urgent Interac fee while discouraging contact with government offices."}
+{"id":"as-ca-0010","verdict":"scam","why":"The sender asks the recipient to accept client payments, keep a fee, and convert and forward the remainder as Bitcoin."}
+{"id":"as-ca-0011","verdict":"risky","why":"The sender requests passport and study-permit photos immediately without a phone call or visible interview process."}
+{"id":"as-ca-0012","verdict":"scam","why":"The sender demands Steam gift-card codes to release supposed earnings from an app."}
+{"id":"as-ca-0013","verdict":"scam","why":"The sender asks the recipient to deposit a cheque, keep part of it, and e-transfer the remainder to an installer."}
+{"id":"as-ca-0014","verdict":"scam","why":"The sender demands a badge fee and SIN through an unverified email thread while offering employment without an interview."}
+{"id":"as-ca-0015","verdict":"scam","why":"The sender asks the recipient to deposit a cheque, purchase items, keep a fee, and wire the remaining money elsewhere."}
+{"id":"as-ca-0016","verdict":"scam","why":"The sender demands an urgent $180 uniform payment through WhatsApp and threatens to withdraw the job offer."}
+{"id":"as-ca-0017","verdict":"scam","why":"The sender demands a SIN photo and an Amazon gift-card deposit while discouraging verification through Service Canada."}
+{"id":"as-ca-0018","verdict":"scam","why":"The sender demands $22,000 for an LMIA job and PR path without a resume review or interview."}
+{"id":"as-ca-0019","verdict":"scam","why":"The sender offers to sell a job offer and work-permit papers for $15,000 paid by the applicant."}
+{"id":"as-ca-0020","verdict":"scam","why":"The sender demands $9,000 in applicant-paid LMIA fees in exchange for a supposedly guaranteed job offer."}
+{"id":"as-ca-0021","verdict":"scam","why":"The sender offers a guaranteed work permit in exchange for $20,000 for an LMIA job while skipping the interview."}
+{"id":"as-ca-0022","verdict":"scam","why":"The sender demands $12,000 from the applicant to sell an LMIA nanny job offer."}
+{"id":"as-ca-0023","verdict":"risky","why":"The sender declares the recipient hired but insists on Telegram-only communication with no phone call or identifiable employer."}
+{"id":"as-ca-0024","verdict":"scam","why":"The sender requests a SIN photo immediately through WhatsApp without a company email or visible hiring process."}
+{"id":"as-ca-0025","verdict":"scam","why":"The sender demands a prepaid-card code as a scanner deposit before the recipient can begin work."}
+{"id":"as-ca-0026","verdict":"risky","why":"The unusually high-paying no-experience job requires Telegram-only communication and discourages sending a resume."}
+{"id":"as-ca-0027","verdict":"risky","why":"The sender uses a generic Gmail address while claiming to represent Shopify and explicitly discourages contact through the company's domain."}
+{"id":"as-ca-0028","verdict":"scam","why":"The sender demands an immediate $220 shoe-and-uniform payment to retain a supposedly confirmed co-op position."}
+{"id":"as-ca-0029","verdict":"risky","why":"The sender declares the recipient hired without an interview and requests passport and study-permit photos by text."}
+{"id":"as-ca-0030","verdict":"risky","why":"The sender insists on Telegram-only communication and withholds job details until the conversation continues there."}
+{"id":"as-ca-0031","verdict":"scam","why":"The sender demands a refundable cryptocurrency gas fee before supposed product-boost payouts begin."}
+{"id":"as-ca-0032","verdict":"looks_ok","why":"The message provides a company careers site, company email, portfolio submission, and an in-person interview with the studio lead."}
+{"id":"as-ca-0033","verdict":"looks_ok","why":"The message identifies a company careers site and email and describes a structured engineering interview process."}
+{"id":"as-ca-0034","verdict":"looks_ok","why":"The message provides a company careers site, company email, and an in-person interview with the shift supervisor."}
+{"id":"as-ca-0035","verdict":"looks_ok","why":"The message provides a company email and careers site, with a phone screen before a paid trial shift and no application fee."}
+{"id":"as-ca-0036","verdict":"looks_ok","why":"The message provides a company careers site, company email, and an in-person interview with the front-office manager."}
+{"id":"as-ca-0037","verdict":"looks_ok","why":"The message identifies a company careers site and email and specifies an interview with the owner in the shop."}
+{"id":"as-ca-0038","verdict":"looks_ok","why":"The message provides a company careers site, company email, and a Zoom meeting with the quality lead."}
+{"id":"as-ca-0039","verdict":"looks_ok","why":"The message provides a company careers site and email, describes a video-panel interview, and explicitly warns against attaching identity documents."}
+{"id":"as-ca-0040","verdict":"looks_ok","why":"The message provides a company careers site, company email, and a 45-minute video interview with the hiring manager."}
+{"id":"as-ca-0041","verdict":"unclear","why":"The message requests a resume for a generic job but identifies neither the shop nor an interview process."}
+{"id":"as-ca-0042","verdict":"looks_ok","why":"The message describes a specific studio and hourly role, offers a Google Meet interview, and requests no money or documents at this stage."}
+{"id":"as-ca-0043","verdict":"unclear","why":"The high hourly rate and lack of experience requirement are suspicious, but this message does not establish a payment demand or Telegram-only process."}
+{"id":"as-ca-0044","verdict":"risky","why":"The sender directs applicants to an unnamed company's Telegram channel for daily job posts without a visible hiring process."}
+{"id":"as-ca-0045","verdict":"unclear","why":"The note describes a plausible dishwasher vacancy but provides no company name, website, or further hiring details."}
+{"id":"as-ca-0046","verdict":"unclear","why":"The message describes a plausible local job and allows email as an alternative to WhatsApp, but the company name is missing."}
+{"id":"as-ca-0047","verdict":"unclear","why":"The message describes a plausible campus recruitment follow-up but does not identify the employer or provide a visible interview arrangement."}
+{"id":"as-ca-0048","verdict":"looks_ok","why":"The message follows a completed interview and signed offer and directs SIN collection to a payroll portal for tax and employment records."}
+{"id":"as-ca-0049","verdict":"looks_ok","why":"The message describes salary payments from a company payroll address and explicitly says not to forward the money to anyone."}
+{"id":"as-ca-0050","verdict":"looks_ok","why":"The message provides a company careers site, company email, and an on-site interview while stating that applicants pay no LMIA fee."}
