@@ -22,11 +22,10 @@ export default function PrivacyPage() {
         not need the number itself.
       </p>
 
-      <h2>What a later API will store</h2>
+      <h2>What is stored</h2>
       <p>
-        When scan logging is turned on, the stored record is a hash of the
-        text, the verdict, and the rule ids. The raw message is not the thing
-        that gets kept.
+        A scan can append a local log line: the time, a hash of the text, the
+        verdict, and the rule ids. The message itself is not written down.
       </p>
 
       <h2>What this is not</h2>

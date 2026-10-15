@@ -1,0 +1,81 @@
+:root {
+  color-scheme: light;
+  --bg: #f4f1ea;
+  --ink: #1c1915;
+  --muted: #5e584e;
+  --line: #e2dacb;
+  --mark: #f4d48a;
+  --scam: #8d2e2e;
+  --risky: #8a5a12;
+  --unclear: #3d4a57;
+  --ok: #1d6a43;
+  --focus: #1d4e89;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  width: 360px;
+  padding: 12px;
+  background: var(--bg);
+  color: var(--ink);
+  font: 15px/1.4 Georgia, "Iowan Old Style", serif;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+a { color: var(--focus); }
+
+.lede, .note, .disclaimer { color: var(--muted); margin: 0.4rem 0; }
+
+button {
+  font: inherit;
+  border-radius: 999px;
+  padding: 0.4rem 0.75rem;
+  cursor: pointer;
+}
+
+button.primary {
+  width: 100%;
+  background: var(--ink);
+  color: #fff;
+  border: 1px solid var(--ink);
+  margin-top: 0.4rem;
+}
+
+.row { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.5rem; }
+
+button.demo {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--ink);
+}
+
+button:disabled { opacity: 0.6; }
+
+#result { margin-top: 0.75rem; }
+
+.verdict { display: flex; justify-content: space-between; align-items: baseline; }
+.verdict strong { font-size: 1.25rem; }
+.verdict.scam strong { color: var(--scam); }
+.verdict.risky strong { color: var(--risky); }
+.verdict.unclear strong { color: var(--unclear); }
+.verdict.looks_ok strong { color: var(--ok); }
+
+.message {
+  white-space: pre-wrap;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.6rem;
+}
+
+mark { background: var(--mark); color: inherit; }
+
+.hits { margin: 0.4rem 0 0; padding-left: 1.1rem; }
+.error { color: var(--scam); }

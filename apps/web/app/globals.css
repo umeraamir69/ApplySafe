@@ -123,12 +123,19 @@ button:disabled { opacity: 0.6; cursor: wait; }
 .verdict.unclear strong { color: var(--unclear); }
 .verdict.looks_ok strong { color: var(--ok); }
 
+h2 { font-size: 1.2rem; margin: 1.4rem 0 0.4rem; }
+
 .message {
   white-space: pre-wrap;
   background: #fff;
   border-radius: 8px;
   padding: 0.75rem;
   border: 1px solid var(--line);
+}
+
+pre.message {
+  overflow: auto;
+  font: 0.85rem/1.45 ui-monospace, "SFMono-Regular", Menlo, monospace;
 }
 
 mark {

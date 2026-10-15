@@ -109,6 +109,14 @@ function Result({ text, result }: { text: string; result: WebScan }) {
         <span>Score {result.score}</span>
       </div>
       <p className="note">{VERDICT_NOTE[result.verdict]}</p>
+      {result.brain ? (
+        <p className="note">
+          Model score {result.brain.p_scam.toFixed(2)} ({result.brain.version}). A hard rule still wins.
+          {result.rules_verdict === "unclear" && result.verdict === "risky"
+            ? " Rules were unclear, so this score lifted the result to risky."
+            : ""}
+        </p>
+      ) : null}
       <p className="message">
         {parts.map((part, index) =>
           part.ruleIds.length > 0 ? (
