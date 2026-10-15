@@ -21,6 +21,14 @@ function extensionScan() {
 const scan = extensionScan();
 const packed = JSON.parse(readFileSync(join(root, "rules.json"), "utf8"));
 
+test("rules.js embeds the same list as rules.json", () => {
+  const source = readFileSync(join(root, "rules.js"), "utf8");
+  const start = source.indexOf("[");
+  const end = source.lastIndexOf("]");
+  assert.ok(start >= 0 && end > start);
+  assert.deepEqual(JSON.parse(source.slice(start, end + 1)), packed);
+});
+
 test("packed rules match the engine files", () => {
   const live = loadRules().map((rule) => ({
     id: rule.id,

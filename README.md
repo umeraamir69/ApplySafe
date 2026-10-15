@@ -18,6 +18,8 @@ Not in this build: a live domain-age lookup, a hosted URL, or the Chrome Web Sto
 
 ## Run the site and the API
 
+The request and response fields are in [docs/api.md](docs/api.md).
+
 ```bash
 cd apps/web
 npm install
@@ -33,9 +35,11 @@ curl -s http://localhost:3000/v1/scan \
   -d '{"text":"send SIN on Telegram","include_brain":true}'
 ```
 
-The demo key allows 30 scans in 10 minutes. Set `APPLYSAFE_DEMO_KEY` to change it. Each API scan appends a hash, the verdict, and the rule ids to `logs/scans.jsonl`. The message is not stored.
+The demo key allows 30 scans in 10 minutes. Set `APPLYSAFE_DEMO_KEY` to change it. Each scan appends a hash, the verdict, and the rule ids to `logs/scans.jsonl`. The message is not stored.
 
 ## Extension
+
+Load steps, permissions, and the offline scanner are in [docs/extension.md](docs/extension.md).
 
 1. Open `chrome://extensions` and turn on Developer mode.
 2. Load unpacked and choose `apps/extension`.
@@ -58,7 +62,7 @@ The full table, including a 346-ad EMSCAD slice the shipped brain was not allowe
 
 ## Docs
 
-- [Plan](docs/plan.md) · [Research](docs/research.md) · [Dataset howto](docs/dataset-howto.md) · [Gold card](data/gold/README.md)
+- [Plan](docs/plan.md) · [Research](docs/research.md) · [API](docs/api.md) · [Extension](docs/extension.md) · [Dataset howto](docs/dataset-howto.md) · [Gold card](data/gold/README.md)
 - Proposal PDF: open [docs/proposal.html](docs/proposal.html) → Print → Save as PDF
 - Professor email: on hold until there is a live demo (`docs/email-prof-usama.md`)
 

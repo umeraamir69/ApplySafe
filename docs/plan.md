@@ -150,12 +150,12 @@ No app. No repo yet.
 
 ### Week 1 · 13–19 Oct · engine
 
-- [ ] Repo already exists (`umeraamir69/ApplySafe`). Add the MIT license and note CC BY 4.0 on `data/gold/`. You commit and push.
+- [x] MIT license is `LICENSE`. CC BY 4.0 is noted on `data/gold/`. Commit and push stay with you.
 - [x] EMSCAD balanced file is in `data/public/emscad/` (done 6 Oct 2026): all 866 fraudulent ads plus 866 legitimate ads, seed `42`. Citation is in `data/public/emscad/README.md`. Raw CSV is local and gitignored.
-- [ ] Hard rules above, plus the first soft and green rules, in `data/rules/ca/*.yml` with `source_url`.
-- [ ] `engine.scan` returns hits, highlights, score, verdict.
-- [ ] One fixture test per hard rule. CI green.
-- [ ] Gold at **80**, holdout ids reserved.
+- [x] Hard rules above, plus the first soft rules, in `data/rules/ca/*.yml` with `source_url`. Sixteen rules. Green flags are a function in the scanner, not extra YAML.
+- [x] `engine.scan` returns hits, highlights, score, verdict.
+- [x] One fixture test per hard rule (`packages/engine`). No GitHub Actions workflow yet.
+- [x] Gold is **500**, holdout ids reserved. The “gold at 80” target is passed.
 - [ ] Saturday 18 Oct: SecSentry Action **or** skip it if the engine is not green. Do not spend the weekend on a GIF.
 - [ ] LinkedIn #1 after the exit, not before.
 
@@ -163,53 +163,53 @@ No app. No repo yet.
 
 ### Week 2 · 20–26 Oct · site
 
-- [ ] `eval/run` on the 50 holdout, rules only. Record the numbers even if they miss the bar.
-- [ ] Next.js: paste box, disclaimer, three demos (scam, unclear, looks-ok). Deploy on Vercel.
-- [ ] Privacy page (the extension will point at it).
-- [ ] Rules toward ~30. Gold at **160**.
+- [x] Holdout numbers are in `eval/report.md` (rules, brain, mix, and the ChatGPT pass).
+- [x] Next.js paste box, disclaimer, and three demos are in `apps/web`. Deploy on Vercel is not done.
+- [x] Privacy page is `/privacy` on the site and `privacy.html` in the extension. The store still needs a public URL.
+- [ ] Rules toward ~30. Sixteen are shipped. Gold is already **500**.
 - [ ] LinkedIn #2: paste demo.
 
 **Exit:** the site opens on a phone and a crypto-task sample highlights.
 
 ### Week 3 · 27 Oct – 2 Nov · API
 
-- [ ] `GET /health`, `GET /v1/rules`, `POST /v1/scan`.
-- [ ] Demo key, rate limit (demo key tight; keyed route 30 requests / 10 minutes).
-- [ ] Log hash, verdict, rule ids. Never the text.
-- [ ] Landing page shows a `curl` example.
-- [ ] Gold at **240**.
+- [x] `GET /health`, `GET /v1/rules`, `POST /v1/scan` on the Next.js app. Guide: `docs/api.md`.
+- [x] Demo key `ask_demo`, 30 requests / 10 minutes.
+- [x] Log hash, verdict, rule ids in `logs/scans.jsonl`. Never the text.
+- [x] Landing page shows a `curl` example.
+- [x] Gold is already **500**.
 - [ ] LinkedIn #3: curl screenshot.
 
 **Exit:** someone else can curl a message and get a rule id back.
 
 ### Week 4 · 3–9 Nov · brain and evidence
 
-- [ ] Train TF–IDF (word + char 3–5 grams) + logistic regression on gold minus the 50, plus the EMSCAD balanced file (866 + 866).
-- [ ] API returns `brain.p_scam`. A hard rule still wins if the model disagrees.
-- [ ] Evidence v1: RDAP domain age, email domain vs a short brand list, one GET to a user-supplied `company_site` (5s, 1 MB, no cookies). Timeout skips the check.
-- [ ] One manual ChatGPT pass on the 50, frozen in `eval/chatgpt50.json`.
-- [ ] `eval/report.md`: rules vs brain vs mix vs that frozen pass.
-- [ ] Gold at **340**.
+- [x] Train TF–IDF (word + char 3–5 grams) + logistic regression on gold minus the 50, plus the EMSCAD balanced file (866 + 866).
+- [x] API returns `brain.p_scam`. A hard rule still wins if the model disagrees.
+- [ ] Evidence v1 is only the webmail-versus-brand note. RDAP domain age and a careers-page GET are not built.
+- [x] One manual ChatGPT pass on the 50, frozen in `eval/chatgpt50.json`.
+- [x] `eval/report.md`: rules vs brain vs mix vs that frozen pass.
+- [x] Gold is already **500**.
 - [ ] LinkedIn #4: the comparison table.
 
 **Exit:** `/v1/scan` returns `rules` and `brain`.
 
 ### Week 5 · 10–16 Nov · extension
 
-- [ ] Chrome MV3. Scan button. Hosts: LinkedIn, Indeed, Indeed.ca. Rules run offline in the extension.
-- [ ] Optional “use brain” calls the API. Offline path is rules only.
-- [ ] Permissions: `activeTab`, those hosts, `storage`. No history, no webRequest, no “all sites.”
+- [x] Chrome MV3. Scan button. Hosts: LinkedIn, Indeed, Indeed.ca. Rules run offline in the extension. Guide: `docs/extension.md`.
+- [ ] Optional “use brain” calls the API. Offline path is rules only, and that is what shipped.
+- [x] Permissions: `activeTab` and those hosts. No history, no webRequest, no “all sites,” no unused `storage`.
 - [ ] Screenshots. **Submit the Chrome Web Store listing by 16 Nov.**
-- [ ] Gold at **420**.
+- [x] Gold is already **500**.
 - [ ] LinkedIn #5: Indeed.ca scan.
 
 **Exit:** unpacked extension works with the network off. Store submission is in.
 
 ### Week 6 · 17–23 Nov · 500 rows
 
-- [ ] Gold file already has **500** rows (7 Oct). Read a random sample again for real PII and copied official text before upload.
-- [ ] Hugging Face `umeraamir69/applysafe-ca` and a dataset card.
-- [ ] README: diagram, threat model, API, eval table, “why the model is not the judge.”
+- [x] Gold file already has **500** rows (7 Oct). A fresh PII read before Hugging Face upload is still open.
+- [ ] Hugging Face `umeraamir69/applysafe-ca` and a dataset card upload. The card text is already `data/gold/README.md`.
+- [x] README: API, extension, eval table, and why the model is not the judge (`docs/api.md`).
 - [ ] Pin the repo.
 - [ ] LinkedIn #6: dataset link.
 

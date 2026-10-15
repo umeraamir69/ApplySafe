@@ -358,6 +358,8 @@ Week 5: `applysafe-ca-v1.jsonl` + card + DOI-less cite:
 
 ## 8. Architecture
 
+The folder sketch below is the design. What actually runs is smaller: the API lives inside `apps/web` (there is no `apps/api` or `packages/evidence`), the model is a joblib file rather than ONNX, and the extension does not call the brain. The request and response that ship are in [api.md](api.md). The extension is in [extension.md](extension.md).
+
 ```text
 applysafe/
   packages/engine/     # TypeScript: tokenize, rules, score
