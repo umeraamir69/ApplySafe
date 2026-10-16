@@ -7,6 +7,7 @@
     "#jobDescriptionText",
     ".jobsearch-JobComponent-description",
     "[data-testid='jobsearch-JobComponent-description']",
+    "[data-testid='viewjob-job-content']",
   ];
 
   function extract() {

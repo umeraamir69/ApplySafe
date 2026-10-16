@@ -24,7 +24,7 @@ Click the toolbar icon, then **Scan this page**.
 
 | Page | What is read |
 |---|---|
-| LinkedIn job URL (`/jobs/`) or Indeed job page | The posting text, from the usual description nodes (`#job-details`, `#jobDescriptionText`, and the other selectors in `content.js`). |
+| LinkedIn job URL (`/jobs/`) or Indeed job page | The posting text. Indeed’s current split view uses `[data-testid='viewjob-job-content']`. Older Indeed pages still use `#jobDescriptionText`. LinkedIn uses `#job-details` and the other selectors in `content.js`. |
 | LinkedIn messaging | The text you have selected, when the selection is at least 40 characters. |
 | Anywhere else | The popup says to open a LinkedIn or Indeed job page. |
 

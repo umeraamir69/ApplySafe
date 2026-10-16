@@ -14,6 +14,10 @@ patterns:
   - '\b(?:bond|invoice|paid here|lab coat fee|file fee|convenience fee)\b'
   - '\be-transfer\s+\$\s*\d+'
   - '\bkeeps\s+\$\s*\d+'
-  - '\$\s*\d+'
+  - '\b(?:training|uniform|handbook|shirt)\b[\s\S]{0,30}\$\s*\d+'
+  - '\$\s*\d{2,4}(?![,\d])\s+to book'
+  - '\bfee is \$\s*\d+'
+  - '\$\s*\d+\s+e-transfer\b'
+  - '(?:^|\.\s)\$\s*\d+\s+and the\b'
 suppress:
   - '\b(?:training is paid|paid time|do not send a training deposit|no fee to apply|no fee|nothing is due|applicants pay nothing|an hour|a assignment)\b'
