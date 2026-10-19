@@ -34,12 +34,22 @@ a { color: var(--focus); }
 header {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   gap: 1rem;
   margin-bottom: 1.5rem;
 }
 
 header a { text-decoration: none; }
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: var(--ink);
+  font-size: 1.15rem;
+}
+
+.brand img { display: block; }
 
 h1 {
   font-size: 1.75rem;

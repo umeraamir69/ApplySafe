@@ -6,6 +6,7 @@ patterns:
   - '\bno interview\b'
   - '\byou(?:''| a)?re hired\b'
   - '\byou are hired\b'
+  - '\byou(?:''ve| have)? got the job\b'
   - '\bno (?:phone )?call\b'
   - '\bstart tomorrow\b'
   - '\bskip the interview\b'

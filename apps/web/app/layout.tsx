@@ -13,7 +13,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body>
         <div className="wrap">
           <header>
-            <a href="/">ApplySafe</a>
+            <a className="brand" href="/">
+              <img src="/logo-mark.svg" width={32} height={32} alt="" />
+              ApplySafe
+            </a>
             <a href="/privacy">Privacy</a>
           </header>
           {children}

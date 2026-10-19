@@ -1,5 +1,7 @@
 # ApplySafe
 
+<img src="brand/logo-wordmark.png" alt="ApplySafe" width="420" />
+
 Canada-first checker for job and recruiter fraud aimed at international students.
 
 Paste a posting or message, or scan the current tab, and get **scam / risky / unclear / looks-ok**, with the phrases highlighted.

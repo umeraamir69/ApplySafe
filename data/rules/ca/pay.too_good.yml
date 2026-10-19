@@ -3,6 +3,7 @@ weight: soft
 family: process
 source_url: https://antifraudcentre-centreantifraude.ca/scams-fraudes/job-emploi-eng.htm
 patterns:
-  - '\$\s*(?:3[5-9]|[4-9]\d)\s+an hour'
+  - '\$\s*(?:3[5-9]|[4-9]\d|\d{3,4})(?![,\d])\s*(?:an|per|/)\s*h(?:ou)?rs?\b'
+  - '\b(?:3[5-9]|[4-9]\d|\d{3,4})(?![,\d])\s*\$\s*(?:an|per|/)\s*h(?:ou)?rs?\b'
   - '\b(?:no experience|remote)[\s\S]{0,40}\$\s*(?:3[5-9]|[4-9]\d)\b'
   - '\$\s*(?:3[5-9]|[4-9]\d)\b[\s\S]{0,40}\b(?:no experience|remote|data entry)\b'

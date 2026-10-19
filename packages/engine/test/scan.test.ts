@@ -41,6 +41,15 @@ const FIXTURES: Record<string, string> = {
   "crypto.task_boost": "as-ca-0031",
 };
 
+test("120$ per hour for someone just told they got the job is risky", () => {
+  const result = scan("Congratulations! you got the job. 120$ per hour as intern");
+  assert.equal(result.verdict, "risky");
+  assert.ok(result.rules.hits.includes("pay.too_good"));
+  assert.ok(result.rules.hits.includes("proc.no_interview_hired"));
+  assert.equal(scan("$45,000 a year").verdict, "unclear");
+  assert.equal(scan("Lumen Draft is hiring at $18 an hour.").verdict, "unclear");
+});
+
 test("send SIN on Telegram is a scam with id.sin_early", () => {
   const result = scan("send SIN on Telegram");
   assert.equal(result.verdict, "scam");
