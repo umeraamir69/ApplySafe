@@ -28,6 +28,12 @@ npm run dev
 
 Open http://localhost:3000. The brain uses the repo `.venv` (`scikit-learn`). If that Python is missing, the page still returns the rules verdict.
 
+## Vercel
+
+`vercel.json` at the repo root is the project Vercel should import. Leave the root directory at `./`.
+
+The public site is the `web` service (`apps/web`) on every path. The `brain` service (`packages/brain`) stays internal. The site calls it through `BRAIN_URL`, which Vercel injects. Do not set `BRAIN_URL` yourself. On this machine, with that variable unset, the page still runs the local Python brain. The demo key stays `ask_demo` unless `APPLYSAFE_DEMO_KEY` is set in the project env.
+
 ```bash
 curl -s http://localhost:3000/v1/scan \
   -H "Authorization: Bearer ask_demo" \

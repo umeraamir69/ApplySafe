@@ -16,9 +16,10 @@ import numpy as np
 
 VERSION = "brain_v1"
 LIFT = 0.75
-ROOT = Path(__file__).resolve().parents[2]
-MODEL_PATH = ROOT / "packages" / "brain" / "dist" / "brain_v1.joblib"
-MANIFEST_PATH = ROOT / "packages" / "brain" / "dist" / "brain_v1.json"
+HERE = Path(__file__).resolve().parent
+ROOT = HERE.parents[1]
+MODEL_PATH = HERE / "dist" / "brain_v1.joblib"
+MANIFEST_PATH = HERE / "dist" / "brain_v1.json"
 GOLD_PATH = ROOT / "data" / "gold" / "applysafe-ca.jsonl"
 EMSCAD_PATH = ROOT / "data" / "public" / "emscad" / "emscad-balanced.jsonl"
 

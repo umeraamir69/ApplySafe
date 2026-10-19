@@ -24,7 +24,7 @@ export async function POST(request: Request) {
   }
   if (body.text.length > 20_000) return json({ error: "text is longer than 20000 characters." }, 400);
   const includeBrain = body.include_brain !== false;
-  const result = scanText(body.text, includeBrain);
+  const result = await scanText(body.text, includeBrain);
   const evidence = evidenceFor({
     from_email: typeof body.from_email === "string" ? body.from_email : undefined,
     company_name: typeof body.company_name === "string" ? body.company_name : undefined,

@@ -44,9 +44,9 @@ export function authorize(request: Request): Response | null {
   return null;
 }
 
-export function scanText(text: string, includeBrain = true): WebScan {
+export async function scanText(text: string, includeBrain = true): Promise<WebScan> {
   const rules = runScan(text);
-  const brain = includeBrain ? runBrain(text) : null;
+  const brain = includeBrain ? await runBrain(text) : null;
   const result = combine(rules, brain);
   remember(text, result);
   return result;

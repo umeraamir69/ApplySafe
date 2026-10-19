@@ -104,6 +104,8 @@ The score stops at 100. A hard hit stays `scam` even when the model score is low
 
 `rules_verdict` is the rules-only answer. `verdict` is that answer after the one allowed lift. `engine` is `rules_v1` when the brain is off or failed to load. A missing `.venv` does not turn a rules scam into an error: the rules result still comes back and `brain` is `null`.
 
+On Vercel the page posts the text to the internal brain service at `BRAIN_URL` (`POST /score`). Vercel sets that variable. A failed call leaves `brain` null and keeps the rules verdict.
+
 `brain.label` is the model's own call at 0.50. It is not the product verdict.
 
 ### Brand check

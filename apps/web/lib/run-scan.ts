@@ -1,6 +1,7 @@
 import { spawnSync } from "node:child_process";
 import { existsSync } from "node:fs";
 import { dirname, join } from "node:path";
+import "yaml";
 
 export type WebHighlight = {
   span: string;
@@ -38,6 +39,8 @@ export function repoRoot(): string {
     if (parent === dir) break;
     dir = parent;
   }
+  const packed = join(process.cwd(), ".applysafe");
+  if (existsSync(join(packed, "packages/engine/src/cli.ts"))) return packed;
   throw new Error("ApplySafe repo root was not found from the web app.");
 }
 
@@ -57,19 +60,39 @@ export function runScan(text: string): WebScan {
   return parsed;
 }
 
-export function runBrain(text: string): BrainScore | null {
+export async function runBrain(text: string): Promise<BrainScore | null> {
+  const base = process.env.BRAIN_URL;
+  if (base) return scoreOnService(base, text);
   const root = repoRoot();
   const venv = join(root, ".venv/bin/python");
   const python = existsSync(venv) ? venv : "python3";
+  const brainDir = existsSync(join(root, "packages/brain/brain.py"))
+    ? join(root, "packages/brain")
+    : root;
   const proc = spawnSync(python, ["-c", BRAIN_SNIPPET], {
-    cwd: join(root, "packages/brain"),
+    cwd: brainDir,
     input: text,
     encoding: "utf8",
     maxBuffer: 2_000_000,
-    env: { ...process.env, PYTHONPATH: join(root, "packages/brain") },
+    env: { ...process.env, PYTHONPATH: brainDir },
   });
   if (proc.status !== 0 || !proc.stdout.trim()) return null;
   return JSON.parse(proc.stdout) as BrainScore;
+}
+
+async function scoreOnService(base: string, text: string): Promise<BrainScore | null> {
+  try {
+    const root = base.endsWith("/") ? base : `${base}/`;
+    const response = await fetch(new URL("score", root), {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ text }),
+    });
+    if (!response.ok) return null;
+    return (await response.json()) as BrainScore;
+  } catch {
+    return null;
+  }
 }
 
 const BRAIN_SNIPPET = `
