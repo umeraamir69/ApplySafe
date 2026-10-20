@@ -4,10 +4,13 @@ family: mule
 source_url: https://antifraudcentre-centreantifraude.ca/scams-fraudes/job-emploi-eng.htm
 patterns:
   - '\bmystery[ -]?shop'
-  - '\bsecret shopper'
-  - '\bcar wrap\b'
+  - '\bsecret[ -]?shop'
+  - '\bcar (?:ad )?wrap\b'
   - '\bcar-wrap\b'
   - '\bwrap your car\b'
+  - '\bwrap job\b'
+  - '\bcar advertising\b'
   - '\bad on the car\b'
+  - '\brate stores\b'
   - '\bfinancial agent'
   - '\bsurvey clerk\b'

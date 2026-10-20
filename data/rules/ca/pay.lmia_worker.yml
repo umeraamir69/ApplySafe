@@ -6,6 +6,7 @@ all_of:
   - '\b(?:LMIAs?|labour-market|labor-market|employer filing|work permit|job offer|guaranteed PR|PR path|the offer)\b'
   - '\b(?:you pay|paid by you|paid by the workers?|buyer pays|your cost|for sale|buy the|\bsell\b|\bsold\b|attachment fee|price\s+\d|\d{4,}\s*CAD|[1-9]\d{3,4}|from you)\b'
 patterns:
+  - '\b(?:buy|sell|selling|sold) (?:me |you |an? |the ){0,2}(?:lmia|work permit|job offer)\b'
   - '\bfor \d{4,5}\s*CAD\b'
   - '\bcaregiver approval\b'
   - '\b\d{4,5} from you\b'

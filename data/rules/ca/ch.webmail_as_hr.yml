@@ -4,4 +4,8 @@ family: channel
 source_url: https://antifraudcentre-centreantifraude.ca/scams-fraudes/job-emploi-eng.htm
 all_of:
   - '@gmail\.com\b'
-  - '\b(?:Shopify|RBC|TD|Scotiabank|Amazon|Google|Bell|Air Canada|McGill|Toronto careers|City of Calgary|Service Canada)\b'
+  - '\b(?:Shopify|RBC|TD|Scotiabank|Amazon|Google(?!\s+Meet)|Bell|Air Canada|McGill|Toronto careers|City of Calgary|Service Canada)\b'
+patterns:
+  - '\bgmail pretending\b'
+  - '\bperson''s gmail\b'
+  - '\bhr gmail\b'

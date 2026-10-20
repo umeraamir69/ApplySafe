@@ -4,10 +4,11 @@ family: identity_harvest
 source_url: https://antifraudcentre-centreantifraude.ca/scams-fraudes/job-emploi-eng.htm
 patterns:
   - '\bsend(?:ing)?\b[\s\S]{0,40}\bsin\b'
-  - '\b(?:reply with|text|attach|photograph)\b[\s\S]{0,40}\bsin\b'
+  - '\b(?:share|give|provide|forward|upload|submit|reply with|text|attach|photograph)\b[\s\S]{0,40}\bsin\b'
   - '\b(?:photo|picture|scan)\b[\s\S]{0,40}\bsin\b'
   - '\bsin\b[\s\S]{0,30}\b(?:photo|picture|scan|in the chat|in this chat|in this thread)\b'
   - '\bsocial insurance\b'
+  - '\bsin (?:number|card)\b'
   - '\b(?:your|the) SIN\b'
   - '\bSIN (?:now|by text|before|plus|in the chat)\b'
 suppress:

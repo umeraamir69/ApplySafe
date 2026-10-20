@@ -5,5 +5,7 @@ source_url: https://antifraudcentre-centreantifraude.ca/scams-fraudes/job-emploi
 patterns:
   - '\$\s*(?:3[5-9]|[4-9]\d|\d{3,4})(?![,\d])\s*(?:an|per|/)\s*h(?:ou)?rs?\b'
   - '\b(?:3[5-9]|[4-9]\d|\d{3,4})(?![,\d])\s*\$\s*(?:an|per|/)\s*h(?:ou)?rs?\b'
-  - '\b(?:no experience|remote)[\s\S]{0,40}\$\s*(?:3[5-9]|[4-9]\d)\b'
-  - '\$\s*(?:3[5-9]|[4-9]\d)\b[\s\S]{0,40}\b(?:no experience|remote|data entry)\b'
+  - '\b(?:3[5-9]|[4-9]\d|\d{3,4})(?![,\d])\s*(?:dollars|cad)\s+(?:an|per)\s+h(?:ou)?rs?\b'
+  - '\$\s*(?:3[5-9]|[4-9]\d|\d{3,4})(?![,\d])\s*hourly\b'
+  - '\b(?:no experience|remote)[\s\S]{0,40}\$\s*(?:3[0-9]|[4-9]\d)(?![,\d])'
+  - '\$\s*(?:3[0-9]|[4-9]\d)(?![,\d])[\s\S]{0,40}\b(?:no experience|remote|data entry|filing)\b'

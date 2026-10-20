@@ -41,6 +41,33 @@ const FIXTURES: Record<string, string> = {
   "crypto.task_boost": "as-ca-0031",
 };
 
+test("everyday wording still trips the matching rule", () => {
+  const cases: Array<[string, string, string]> = [
+    ["share your passport in this chat", "scam", "id.passport_chat"],
+    ["deposit the check and keep $200", "scam", "mule.cheque_split"],
+    ["the uniform fee of $150 is due today", "scam", "pay.upfront_fee"],
+    ["sell me an LMIA", "scam", "pay.lmia_worker"],
+    ["pay the deposit with ethereum", "scam", "pay.crypto_or_gift"],
+    ["ESDC officer: text your SIN", "scam", "gov.impersonate"],
+    ["like the products then pay USDT to withdraw", "scam", "crypto.task_boost"],
+    ["send the rest of the money back", "scam", "mule.forward_funds"],
+    ["80 dollars per hour, no experience", "risky", "pay.too_good"],
+    ["message me on telegram", "risky", "ch.telegram_only"],
+    ["saw the resume and reached out", "risky", "proc.unsolicited"],
+    ["secret-shop assignment", "risky", "title.cafc_classic"],
+    ["HR Gmail for the hiring desk", "risky", "ch.webmail_as_hr"],
+  ];
+  for (const [text, verdict, ruleId] of cases) {
+    const result = scan(text);
+    assert.equal(result.verdict, verdict, text);
+    assert.ok(result.rules.hits.includes(ruleId), `${text} missed ${ruleId}: ${result.rules.hits.join(",")}`);
+  }
+  assert.equal(scan("$45,000 a year").verdict, "unclear");
+  assert.equal(scan("Message on WhatsApp or by email, either is fine.").rules.hits.includes("ch.whatsapp_only"), false);
+  const meet = scan("Send a resume to lumendraft.jobs@gmail.com. If it fits, we do a Google Meet.");
+  assert.equal(meet.rules.hits.includes("ch.webmail_as_hr"), false);
+});
+
 test("120$ per hour for someone just told they got the job is risky", () => {
   const result = scan("Congratulations! you got the job. 120$ per hour as intern");
   assert.equal(result.verdict, "risky");
@@ -48,6 +75,15 @@ test("120$ per hour for someone just told they got the job is risky", () => {
   assert.ok(result.rules.hits.includes("proc.no_interview_hired"));
   assert.equal(scan("$45,000 a year").verdict, "unclear");
   assert.equal(scan("Lumen Draft is hiring at $18 an hour.").verdict, "unclear");
+});
+
+test("share sin after you got the job is a scam", () => {
+  const result = scan(
+    "Hiring customer support. Must be eligible to work in Canada. Email your resume to the manager. Pay competitive. Remote. Congratulations! you got the job. share sin, and other documents",
+  );
+  assert.equal(result.verdict, "scam");
+  assert.ok(result.rules.hits.includes("id.sin_early"));
+  assert.ok(result.rules.hits.includes("proc.no_interview_hired"));
 });
 
 test("send SIN on Telegram is a scam with id.sin_early", () => {

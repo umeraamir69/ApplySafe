@@ -4,7 +4,9 @@ family: process
 source_url: https://settlement.org/ontario/daily-life/consumer-protection/consumer-protection-basics/how-to-identify-fake-online-jobs/
 patterns:
   - '\bunsolicited\b'
-  - '\bcold (?:note|text|message)\b'
-  - '\bfound your (?:profile|resume)\b'
-  - '\bsaw your resume\b'
+  - '\bcold (?:note|text|message|telegram|whatsapp|email|dm)\b'
+  - '\bfound your (?:profile|resume|username)\b'
+  - '\bsaw (?:your|the) resume\b'
+  - '\b(?:just|only) to find you\b'
+  - '\byour (?:number|email) was\b'
   - '\brandom (?:text|offer)\b'

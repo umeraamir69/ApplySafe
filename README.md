@@ -6,7 +6,7 @@ Canada-first checker for job and recruiter fraud aimed at international students
 
 Paste a posting or message, or scan the current tab, and get **scam / risky / unclear / looks-ok**, with the phrases highlighted.
 
-**Status:** local MVP. The paste site, the scan API, the rules, the brain, and an unpacked Chrome extension run on this machine. The public site, Hugging Face upload, and Chrome Web Store submission are not done.
+**Status:** the paste site is public at https://applysafe.vercel.app. The scan API, the rules, and the brain run there. An unpacked Chrome extension is in this repo. Hugging Face upload and the Chrome Web Store submission are not done.
 
 ## What it is
 
@@ -16,7 +16,7 @@ Paste a posting or message, or scan the current tab, and get **scam / risky / un
 - **Chrome MV3** — Scan on LinkedIn, Indeed, and Indeed.ca. Rules run on the device.
 - **ApplySafe-CA** — 500 synthetic rows. The code is MIT. `data/gold/` is CC BY 4.0.
 
-Not in this build: a live domain-age lookup, a hosted URL, or the Chrome Web Store listing.
+Not in this build: a live domain-age lookup, or the Chrome Web Store listing.
 
 ## Run the site and the API
 

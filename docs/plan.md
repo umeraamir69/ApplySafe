@@ -164,7 +164,7 @@ No app. No repo yet.
 ### Week 2 · 20–26 Oct · site
 
 - [x] Holdout numbers are in `eval/report.md` (rules, brain, mix, and the ChatGPT pass).
-- [x] Next.js paste box, disclaimer, and three demos are in `apps/web`. Deploy on Vercel is not done.
+- [x] Next.js paste box, disclaimer, and three demos are in `apps/web`. Production is https://applysafe.vercel.app.
 - [x] Privacy page is `/privacy` on the site and `privacy.html` in the extension. The store still needs a public URL.
 - [ ] Rules toward ~30. Sixteen are shipped. Gold is already **500**.
 - [ ] LinkedIn #2: paste demo.

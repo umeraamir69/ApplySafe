@@ -3,8 +3,8 @@ weight: hard
 family: mule
 source_url: https://antifraudcentre-centreantifraude.ca/scams-fraudes/job-emploi-eng.htm
 patterns:
-  - '\b(?:cheques?|money order)\b[\s\S]{0,90}\b(?:keep|deposits?|cash|cut|forward|balance|rest|split|money)\b'
-  - '\b(?:deposits?|cash|keep)[\s\S]{0,40}\b(?:cheques?|money order)\b'
+  - '\b(?:cheques?|checks?|money order)\b[\s\S]{0,90}\b(?:keep|deposits?|cash|cut|forward|balance|rest|split|money)\b'
+  - '\b(?:deposits?|cash|keep)[\s\S]{0,40}\b(?:cheques?|checks?|money order)\b'
   - '\bleftover\b[\s\S]{0,20}\bcheques?\b'
 suppress:
   - '\b(?:missed pay cheque|pay cheque can be replaced|replaced by Interac)\b'

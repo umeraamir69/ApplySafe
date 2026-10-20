@@ -17,6 +17,9 @@ patterns:
   - '\b(?:training|uniform|handbook|shirt)\b[\s\S]{0,30}\$\s*\d+'
   - '\$\s*\d{2,4}(?![,\d])\s+to book'
   - '\bfee is \$\s*\d+'
+  - '\b(?:fee|deposit)\s+of\s+\$?\s*\d+'
+  - '\b\d+\s*\$\s*(?:fee|deposit)\b'
+  - '\b(?:e-transfer|interac)\b[\s\S]{0,30}\b(?:fee|deposit)\b'
   - '\$\s*\d+\s+e-transfer\b'
   - '(?:^|\.\s)\$\s*\d+\s+and the\b'
 suppress:

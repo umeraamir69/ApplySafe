@@ -8,3 +8,5 @@ all_of:
 patterns:
   - '\bproduct-boost\b'
   - '\bboost (?:tasks|app|wallet|job)\b'
+  - '\b(?:click|optimization|prepaid) tasks\b'
+  - '\b(?:rate|like) (?:the )?(?:products|apps|videos)\b[\s\S]{0,60}\b(?:usdt|withdraw|fee|gift card)\b'

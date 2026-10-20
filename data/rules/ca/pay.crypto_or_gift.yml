@@ -4,7 +4,9 @@ family: money_out
 source_url: https://antifraudcentre-centreantifraude.ca/scams-fraudes/job-emploi-eng.htm
 patterns:
   - '\bUSDT\b'
+  - '\bUSDC\b'
   - '\bbitcoin\b'
+  - '\bethereum\b'
   - '\b(?:steam|itunes|google play|amazon)\s+cards?\b'
   - '\bgift cards?\b'
   - '\bprepaid (?:cards?|mastercard)\b'

@@ -3,8 +3,10 @@ weight: soft
 family: channel
 source_url: https://settlement.org/ontario/daily-life/consumer-protection/consumer-protection-basics/how-to-identify-fake-online-jobs/
 patterns:
-  - '\btelegram only\b'
-  - '\bonly (?:use |on )?telegram\b'
-  - '\bstay (?:on|in) this telegram\b'
+  - '\btelegram[- ]only\b'
+  - '\bonly (?:use |reply |talk |chat |message )?(?:in |on )?telegram\b'
+  - '\bstay (?:on|in) (?:this )?telegram\b'
   - '\bthis telegram\b'
-  - '\bin this telegram\b'
+  - '\b(?:on|in) (?:this )?telegram\b'
+  - '\btelegram is the only\b'
+  - '\bcold telegram\b'

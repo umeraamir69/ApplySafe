@@ -3,8 +3,10 @@ weight: soft
 family: channel
 source_url: https://settlement.org/ontario/daily-life/consumer-protection/consumer-protection-basics/how-to-identify-fake-online-jobs/
 patterns:
-  - '\bwhatsapp only\b'
-  - '\bonly (?:use )?whatsapp\b'
+  - '\bwhatsapp[- ]only\b'
+  - '\bonly (?:use |reply |answer )?(?:in |on |here )?whatsapp\b'
   - '\bthis whatsapp\b'
-  - '\bin this whatsapp\b'
+  - '\b(?:on|in) (?:this )?whatsapp\b'
   - '\bstay on whatsapp\b'
+suppress:
+  - '\b(?:or by email|or email|either is fine)\b'

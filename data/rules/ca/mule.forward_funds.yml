@@ -7,6 +7,8 @@ patterns:
   - '\be-transfers?\b[\s\S]{0,80}\b(?:crypto|bitcoin|forward|the rest)\b'
   - '\b(?:keep|deposit|cut)\b[\s\S]{0,70}\b(?:e-transfer the rest|Interac the rest|wire|forward the balance|rest back)\b'
   - '\b(?:forward|send) the (?:rest|balance|remainder)\b'
+  - '\bsend (?:me |back )?the rest of the money\b'
+  - '\bmobile deposit\b[\s\S]{0,60}\b(?:send|forward|e-transfer|wire)\b'
   - '\bturn the rest into Bitcoin\b'
   - '\be-transfer the rest\b'
   - '\bforward them\b'

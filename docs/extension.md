@@ -49,7 +49,7 @@ Content scripts are limited to LinkedIn jobs, LinkedIn messaging, and Indeed. Th
 
 `privacy.html`, linked from the popup. The scan stays on the device. Do not treat the extension as a place to store a social insurance number or a passport photo. It is not legal advice. Report fraud at 1-888-495-8501.
 
-The website privacy page is `http://localhost:3000/privacy` while the app is running. The Chrome Web Store listing needs that page on a public URL. The listing is not submitted.
+The website privacy page is https://applysafe.vercel.app/privacy. Locally it is http://localhost:3000/privacy while the app is running. The Chrome Web Store listing is not submitted.
 
 ## Check it
 
@@ -57,6 +57,6 @@ The website privacy page is `http://localhost:3000/privacy` while the app is run
 node --experimental-strip-types --test apps/extension/test/parity.test.mjs
 ```
 
-That test checks three things: the packed rules match `data/rules/ca/`, `scan("send SIN on Telegram")` is scam plus `id.sin_early`, and all 500 gold rows return the same verdict and the same rule ids as `packages/engine`.
+That test checks four things: `rules.js` matches `rules.json`, the packed rules match `data/rules/ca/`, `scan("send SIN on Telegram")` is scam plus `id.sin_early`, and all 500 gold rows return the same verdict and the same rule ids as `packages/engine`.
 
 The popup and the on-page marks were also opened in a browser against a local job-description fixture. A live LinkedIn tab was not part of that check. If a job page has changed its layout, select the description and scan again.
