@@ -1,4 +1,14 @@
-const WEBMAIL = ["gmail.com", "yahoo.com", "outlook.com", "hotmail.com", "icloud.com"];
+const WEBMAIL = [
+  "gmail.com",
+  "yahoo.com",
+  "outlook.com",
+  "hotmail.com",
+  "icloud.com",
+  "proton.me",
+  "protonmail.com",
+  "tuta.com",
+  "tutanota.com",
+];
 const BRANDS = ["shopify", "rbc", "td", "scotiabank", "amazon", "google", "bell", "air canada", "service canada"];
 
 export type Evidence = {
@@ -7,12 +17,16 @@ export type Evidence = {
   notes: string[];
 };
 
+function isWebmail(domain: string): boolean {
+  return WEBMAIL.some((host) => domain === host || domain.endsWith("." + host));
+}
+
 export function evidenceFor(input: { from_email?: string; company_name?: string }): Evidence | null {
   const email = input.from_email?.trim().toLowerCase() ?? "";
   const company = input.company_name?.trim().toLowerCase() ?? "";
   if (!email || !company) return null;
   const domain = email.split("@")[1] ?? "";
-  const webmail = WEBMAIL.some((host) => domain === host);
+  const webmail = isWebmail(domain);
   const brand = BRANDS.some((name) => company.includes(name));
   if (!webmail || !brand) {
     return { webmail_as_hr: false, brand_mismatch: false, notes: [] };
