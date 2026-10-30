@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "ApplySafe",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Check a Canadian job posting for scam phrases. Rules run on this device.",
   "action": {
     "default_title": "ApplySafe",
@@ -17,7 +17,7 @@
     "48": "icons/icon48.png",
     "128": "icons/icon128.png"
   },
-  "permissions": ["activeTab"],
+  "permissions": ["activeTab", "storage"],
   "host_permissions": [
     "https://www.linkedin.com/*",
     "https://www.indeed.com/*",

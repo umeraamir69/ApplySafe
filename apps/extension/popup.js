@@ -37,58 +37,93 @@ function segments(text, highlights) {
   return parts;
 }
 
-function render(text, result) {
+function el(tag, className, text) {
+  const node = document.createElement(tag);
+  if (className) node.className = className;
+  if (text !== undefined) node.textContent = text;
+  return node;
+}
+
+function hitList(result) {
+  const wrap = document.createDocumentFragment();
+  if (!result.rules.hits.length && !result.lifted) return wrap;
+  wrap.append(el("div", "label", "Why"));
+  const list = el("ul", "hits");
+  if (result.lifted) {
+    const item = document.createElement("li");
+    item.append(
+      el("span", "", "Reads like known scam text"),
+      el("span", "tag", Math.round(result.brain.p_scam * 100) + "% match"),
+    );
+    list.append(item);
+  }
+  for (const id of result.rules.hits) {
+    const item = document.createElement("li");
+    item.append(el("code", "", id));
+    const href = result.sources[id];
+    if (href) {
+      const link = el("a", "", "source");
+      link.href = href;
+      link.target = "_blank";
+      link.rel = "noreferrer";
+      item.append(link);
+    }
+    list.append(item);
+  }
+  wrap.append(list);
+  return wrap;
+}
+
+function render(text, result, meta, rows) {
   statusNode.hidden = true;
   resultNode.hidden = false;
   resultNode.replaceChildren();
-  const verdict = document.createElement("div");
-  verdict.className = "verdict " + result.verdict;
-  const strong = document.createElement("strong");
-  strong.textContent = LABELS[result.verdict];
-  const score = document.createElement("span");
-  score.textContent = "Score " + result.score;
-  verdict.append(strong, score);
-  const note = document.createElement("p");
-  note.className = "note";
-  note.textContent = NOTES[result.verdict];
-  const message = document.createElement("p");
-  message.className = "message";
-  for (const part of segments(text, result.highlights)) {
-    const node = document.createElement(part.on ? "mark" : "span");
-    node.textContent = part.text;
-    message.append(node);
-  }
-  resultNode.append(verdict, note, message);
-  if (result.rules.hits.length) {
-    const list = document.createElement("ul");
-    list.className = "hits";
-    for (const id of result.rules.hits) {
-      const item = document.createElement("li");
-      const code = document.createElement("code");
-      code.textContent = id;
-      item.append(code);
-      const href = result.sources[id];
-      if (href) {
-        const link = document.createElement("a");
-        link.href = href;
-        link.target = "_blank";
-        link.rel = "noreferrer";
-        link.textContent = " source";
-        item.append(link);
-      }
-      list.append(item);
+  if (text) {
+    const verdict = el("div", "verdict " + result.verdict);
+    verdict.append(el("strong", "", LABELS[result.verdict]), el("span", "", "Score " + result.score));
+    resultNode.append(verdict);
+    const who = meta && [meta.title, meta.company].filter(Boolean).join(" at ");
+    resultNode.append(el("p", "sub", who || NOTES[result.verdict]));
+    if (who) resultNode.append(el("p", "sub", NOTES[result.verdict]));
+    const message = el("p", "message");
+    for (const part of segments(text, result.highlights)) {
+      message.append(el(part.on ? "mark" : "span", "", part.text));
     }
-    resultNode.append(list);
-  } else {
-    const empty = document.createElement("p");
-    empty.className = "note";
-    empty.textContent = "No rule fired.";
-    resultNode.append(empty);
+    resultNode.append(message, hitList(result));
   }
-  const disclaimer = document.createElement("p");
-  disclaimer.className = "disclaimer";
-  disclaimer.textContent = result.disclaimer;
-  resultNode.append(disclaimer);
+  if (rows && rows.length) renderListings(rows);
+  resultNode.append(el("p", "disclaimer", (result || rows[0] || {}).disclaimer || "Not legal advice. Report fraud to the Canadian Anti-Fraud Centre at 1-888-495-8501."));
+}
+
+function renderListings(rows) {
+  const flagged = rows.filter((row) => row.verdict === "scam" || row.verdict === "risky").length;
+  resultNode.append(
+    el("div", "label", rows.length + " listings on this page" + (flagged ? ", " + flagged + " flagged" : ", none flagged")),
+  );
+  const order = { scam: 0, risky: 1, unclear: 2, looks_ok: 3 };
+  const list = el("ul", "list");
+  for (const row of [...rows].sort((a, b) => order[a.verdict] - order[b.verdict])) {
+    const item = document.createElement("li");
+    const button = el("button");
+    button.type = "button";
+    const name = el("span", "name", row.title);
+    if (row.company) name.append(el("small", "", "  " + row.company));
+    button.append(el("span", "dot " + row.verdict), name, el("span", "tag", LABELS[row.verdict]));
+    button.addEventListener("click", () => focusListing(row.id));
+    item.append(button);
+    list.append(item);
+  }
+  resultNode.append(list);
+}
+
+let activeTab = null;
+async function focusListing(id) {
+  if (!activeTab) return;
+  try {
+    await chrome.tabs.sendMessage(activeTab.id, { type: "applysafe:focus", id });
+  } catch {
+    // The tab was closed or reloaded.
+  }
 }
 
 function showStatus(text, isError) {
@@ -99,7 +134,19 @@ function showStatus(text, isError) {
 }
 
 function scanText(text) {
-  return ApplySafe.scan(text, ApplySafe.rules);
+  const result = ApplySafe.scan(text, ApplySafe.rules);
+  const brain = globalThis.ApplySafeBrain;
+  if (!brain || !brain.ready()) return result;
+  const p = brain.pScam(text);
+  result.brain = { p_scam: p, version: "brain_v1" };
+  const mixed = brain.mix(result.verdict, p);
+  if (mixed !== result.verdict) {
+    result.verdict = mixed;
+    result.lifted = true;
+    result.score = Math.max(result.score, 36);
+    result.engine = "rules_v1+brain_v1";
+  }
+  return result;
 }
 
 function allowed(url) {
@@ -120,7 +167,7 @@ async function scanPage() {
   const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
   if (!tab || !tab.id || !allowed(tab.url || "")) {
     scanButton.disabled = false;
-    showStatus("Open a LinkedIn or Indeed job page, then scan.", true);
+    showStatus("Open a LinkedIn or Indeed job page or search results, then scan.", true);
     return;
   }
   let extracted;
@@ -136,22 +183,81 @@ async function scanPage() {
     showStatus(extracted && extracted.error ? extracted.error : "Nothing to scan.", true);
     return;
   }
-  const result = scanText(extracted.text);
-  render(extracted.text, result);
+  activeTab = tab;
+  const result = extracted.text ? scanText(extracted.text) : null;
+  const rows = (extracted.listings || []).map((item) => {
+    const r = scanText(item.text);
+    return { id: item.id, title: item.title, company: item.company, url: item.url, verdict: r.verdict, score: r.score };
+  });
+  render(extracted.text, result, extracted, rows);
+  await noteTrust(tab.url || "");
+  if (result) {
+    await remember({ url: tab.url, title: extracted.title ? extracted.title + (extracted.company ? " - " + extracted.company : "") : tab.title }, result);
+  }
+  for (const row of rows.filter((item) => item.verdict === "scam" || item.verdict === "risky").slice(0, 10)) {
+    await remember({ url: row.url, title: row.title + (row.company ? " - " + row.company : "") }, row);
+  }
   try {
-    await chrome.tabs.sendMessage(tab.id, { type: "applysafe:show", extracted, result });
+    await chrome.tabs.sendMessage(tab.id, { type: "applysafe:show", extracted, result, results: rows });
   } catch {
     // The popup still has the verdict if the page mark fails.
   }
+}
+
+const dashButton = document.querySelector("#dash");
+const trustNode = document.querySelector("#trust");
+
+function paintStats(rows) {
+  const stats = ApplySafeHistory.summarize(rows);
+  document.querySelector("#stat-scams").textContent = String(stats.scams);
+  document.querySelector("#stat-checked").textContent = String(stats.checked);
+  document.querySelector("#stat-safer").textContent = stats.safer + "%";
+  document.querySelector("#stats-line").textContent = stats.checked + " checked, " + stats.scams + " scam" + (stats.scams === 1 ? "" : "s") + " flagged";
+}
+
+function openDashboard() {
+  const url = globalThis.chrome && chrome.runtime && chrome.runtime.getURL
+    ? chrome.runtime.getURL("dashboard.html")
+    : "dashboard.html";
+  if (globalThis.chrome && chrome.tabs) {
+    void chrome.tabs.create({ url });
+    return;
+  }
+  window.open(url, "_blank");
+}
+
+async function noteTrust(url) {
+  const data = await ApplySafeHistory.load();
+  paintStats(data.scans);
+  const host = ApplySafeHistory.hostOf(url || "");
+  const listed = ApplySafeHistory.trusted(host, data.trustedHosts);
+  trustNode.hidden = !listed;
+  trustNode.textContent = listed ? host + " is on your trusted list. The rules still run." : "";
+}
+
+async function remember(tab, result) {
+  const scans = await ApplySafeHistory.saveScan({
+    ts: Date.now(),
+    url: tab.url || "",
+    title: (tab.title || "Job page").slice(0, 140),
+    site: ApplySafeHistory.siteOf(tab.url || ""),
+    host: ApplySafeHistory.hostOf(tab.url || ""),
+    verdict: result.verdict,
+    score: result.score,
+  });
+  paintStats(scans);
 }
 
 scanButton.addEventListener("click", () => {
   void scanPage();
 });
 
+if (dashButton) dashButton.addEventListener("click", openDashboard);
+void noteTrust("");
+
 for (const button of document.querySelectorAll("[data-demo]")) {
   button.addEventListener("click", () => {
     const text = DEMOS[button.getAttribute("data-demo")];
-    render(text, scanText(text));
+    render(text, scanText(text), null, []);
   });
 }

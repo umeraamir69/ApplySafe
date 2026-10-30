@@ -6,21 +6,40 @@
     <link rel="stylesheet" href="popup.css" />
   </head>
   <body>
-    <header>
-      <strong class="brand"><img src="icons/icon48.png" width="28" height="28" alt="" />ApplySafe</strong>
-      <a href="privacy.html">Privacy</a>
+    <header class="top">
+      <div class="brand">
+        <img src="icons/icon48.png" width="22" height="22" alt="" />
+        <strong>ApplySafe</strong>
+      </div>
+      <button id="dash" class="link" type="button">Dashboard</button>
     </header>
-    <p class="lede">Rules run in this browser. The posting is not uploaded.</p>
+
     <button id="scan" class="primary" type="button">Scan this page</button>
-    <div class="row">
-      <button class="demo" type="button" data-demo="scam">Crypto-task scam</button>
-      <button class="demo" type="button" data-demo="unclear">Thin posting</button>
-      <button class="demo" type="button" data-demo="looks_ok">Co-op page</button>
-    </div>
+
+    <p id="trust" class="note" hidden></p>
     <p id="status" class="note" hidden></p>
     <section id="result" hidden></section>
+
+    <details class="demos">
+      <summary>Try an example</summary>
+      <div class="row">
+        <button class="chip" type="button" data-demo="scam">Crypto task</button>
+        <button class="chip" type="button" data-demo="unclear">Thin posting</button>
+        <button class="chip" type="button" data-demo="looks_ok">Co-op page</button>
+      </div>
+    </details>
+
+    <footer>
+      <span id="stats-line">0 checked</span>
+      <a href="privacy.html" target="_blank" rel="noreferrer">Privacy</a>
+    </footer>
+    <span hidden><b id="stat-scams">0</b><b id="stat-checked">0</b><b id="stat-safer">100%</b></span>
+
+    <script src="history.js"></script>
     <script src="rules.js"></script>
     <script src="scan.js"></script>
+    <script src="brain.js"></script>
+    <script src="brain-core.js"></script>
     <script src="popup.js"></script>
   </body>
 </html>

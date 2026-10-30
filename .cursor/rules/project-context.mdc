@@ -1,0 +1,16 @@
+---
+description: ApplySafe product facts a new Cursor session must keep
+alwaysApply: true
+---
+
+# ApplySafe context
+
+Read `docs/handoff.md` before changing product behavior. Chat history does not travel with the repo. That file is the backup.
+
+- Owner: Muhammad Umer Aamir. Canada-first job-scam checker for international students. Launch target stays 1 Dec 2026.
+- Rules are the judge. A hard hit is scam. The brain may lift unclear to risky only when `p_scam` is at least 0.75. It cannot cancel a hard hit.
+- Holdout ids `as-ca-0001` through `as-ca-0050` are never used to train.
+- Live site: https://applysafe.vercel.app. Do not set `BRAIN_URL` by hand.
+- Chrome Web Store item `mjgkehogloekmonnmkkmcpjnibamahjp` is public at version 0.2.0. No email sign-in, trial, or upgrade.
+- Do not email Dr. Usama Mir, write LinkedIn posts, or move the launch date unless asked.
+- Git writes stay with the user unless this chat explicitly asks for a commit or push.

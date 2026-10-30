@@ -2,10 +2,10 @@ id: pay.too_good
 weight: soft
 family: process
 source_url: https://antifraudcentre-centreantifraude.ca/scams-fraudes/job-emploi-eng.htm
+# A high wage alone is not a signal: nurses, trades, engineers, and tech roles pay $35+ an hour.
+# This rule fires only when a high wage sits next to a "no skills needed" or "anyone can start" claim.
 patterns:
-  - '\$\s*(?:3[5-9]|[4-9]\d|\d{3,4})(?![,\d])\s*(?:an|per|/)\s*h(?:ou)?rs?\b'
-  - '\b(?:3[5-9]|[4-9]\d|\d{3,4})(?![,\d])\s*\$\s*(?:an|per|/)\s*h(?:ou)?rs?\b'
-  - '\b(?:3[5-9]|[4-9]\d|\d{3,4})(?![,\d])\s*(?:dollars|cad)\s+(?:an|per)\s+h(?:ou)?rs?\b'
-  - '\$\s*(?:3[5-9]|[4-9]\d|\d{3,4})(?![,\d])\s*hourly\b'
-  - '\b(?:no experience|remote)[\s\S]{0,40}\$\s*(?:3[0-9]|[4-9]\d)(?![,\d])'
-  - '\$\s*(?:3[0-9]|[4-9]\d)(?![,\d])[\s\S]{0,40}\b(?:no experience|remote|data entry|filing)\b'
+  - '\b(?:no experience|no skills?|no resume|no interview|no degree|anyone can|anybody can|easy money|work from (?:home|your phone)|data entry|filing|typing|product (?:listing|boost)|reply to (?:this|the) (?:text|message)|beginners? (?:fine|welcome|ok)|no portfolio|congratulations|you(?:.ve| have)? (?:got|been given|are given) the job|you(?:.ve| have) been hired|as (?:an? )?intern|from home|reply with (?:a|your) (?:city|name))\b[\s\S]{0,80}(?:\$\s*(?:[3-9]\d|\d{3,4})(?![,\d])\s*(?:an|per|/|a)\s*h(?:ou)?rs?\b|\b(?:[3-9]\d|\d{3,4})(?![,\d])\s*(?:dollars|cad|\$)\s*(?:an|per|/|a)\s*h(?:ou)?rs?\b|\$\s*(?:[3-9]\d|\d{3,4})(?![,\d])\s*hourly\b)'
+  - '(?:\$\s*(?:[3-9]\d|\d{3,4})(?![,\d])\s*(?:an|per|/|a)\s*h(?:ou)?rs?\b|\b(?:[3-9]\d|\d{3,4})(?![,\d])\s*(?:dollars|cad|\$)\s*(?:an|per|/|a)\s*h(?:ou)?rs?\b|\$\s*(?:[3-9]\d|\d{3,4})(?![,\d])\s*hourly\b)[\s\S]{0,80}\b(?:no experience|no skills?|no resume|no interview|no degree|anyone can|anybody can|easy money|work from (?:home|your phone)|data entry|filing|typing|product (?:listing|boost)|reply to (?:this|the) (?:text|message)|beginners? (?:fine|welcome|ok)|no portfolio|congratulations|you(?:.ve| have)? (?:got|been given|are given) the job|you(?:.ve| have) been hired|as (?:an? )?intern|from home|reply with (?:a|your) (?:city|name))\b'
+suppress:
+  - '\b(?:\d+\+?\s*years? of (?:relevant |related )?experience|bachelor|master|degree in|diploma in|red seal|licen[cs]ed|licen[cs]ure|registered nurse|\bRN\b|P\.?Eng|CPA|CFA|apprenticeship|journeyperson|union|collective agreement|benefits package|pension)\b'

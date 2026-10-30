@@ -26,6 +26,7 @@ Click the toolbar icon, then **Scan this page**.
 |---|---|
 | LinkedIn job URL (`/jobs/`) or Indeed job page | The posting text. Indeed’s current split view uses `[data-testid='viewjob-job-content']`. Older Indeed pages still use `#jobDescriptionText`. LinkedIn uses `#job-details` and the other selectors in `content.js`. |
 | LinkedIn messaging | The text you have selected, when the selection is at least 40 characters. |
+| Indeed search results | Every listing card on the page is scanned and gets a small verdict chip. The open job on the right is scanned in full, including title, company, pay, description, and benefits. Click a listing in the popup to jump to its card. |
 | Anywhere else | The popup says to open a LinkedIn or Indeed job page. |
 
 The three buttons in the popup (crypto-task scam, thin posting, co-op page) run the same scanner on built-in sentences. They do not read the tab and they do not use the network.
@@ -34,20 +35,33 @@ A hit is painted on the posting as a mark, with a one-line banner (`ApplySafe: S
 
 Verdicts match the engine: a hard hit is scam, soft hits are risky, a `.ca` address plus an interview plus a careers or jobs link is looks-ok, and anything else is unclear.
 
+## The brain in the popup
+
+`brain.js` holds the brain_v1 weights and `brain-core.js` scores text with them on the device, with no network call. It matches the Python model to within 0.000001. Like on the site, it can only lift an `unclear` rules result to `risky` when `p_scam` is at least 0.75. It never changes a hard hit, and the popup shows it as "Reads like known scam text". Rebuild `brain.js` after retraining:
+
+```bash
+.venv/bin/python apps/extension/scripts/export-brain.py
+```
+
+## Pay rule
+
+`pay.too_good` no longer fires on a high wage alone. It needs a high wage next to a "no experience", "work from home", "data entry", or "you got the job" style claim, and it stays quiet when the text mentions a degree, years of experience, a licence, a union, or a pension.
+
 ## Permissions
 
 | Permission | Why |
 |---|---|
 | `activeTab` | Read the tab you clicked the icon on. |
 | Hosts | `www.linkedin.com`, `www.indeed.com`, `*.indeed.com`, `ca.indeed.com`, `www.indeed.ca`, `*.indeed.ca`. |
+| `storage` | Keep the scan list on this device: time, site, page title, verdict, and score. The posting text is not saved. |
 
-No history, no `webRequest`, no access to every site, and no `storage`. Nothing is saved between scans.
+No browsing history, no `webRequest`, and no access to every site. The Dashboard button opens `dashboard.html`. Demo buttons are not written into the scan list.
 
 Content scripts are limited to LinkedIn jobs, LinkedIn messaging, and Indeed. They wait until you press Scan.
 
 ## Privacy page inside the extension
 
-`privacy.html`, linked from the popup. The scan stays on the device. Do not treat the extension as a place to store a social insurance number or a passport photo. It is not legal advice. Report fraud at 1-888-495-8501.
+`privacy.html`, linked from the popup. The scan stays on the device. A job-page scan can leave a short record in `storage`: time, site, title, verdict, and score. The posting text is not saved. Clear it from the dashboard. Do not treat the extension as a place to store a social insurance number or a passport photo. It is not legal advice. Report fraud at 1-888-495-8501.
 
 The website privacy page is https://applysafe.vercel.app/privacy. Locally it is http://localhost:3000/privacy while the app is running. The Chrome Web Store listing is not submitted.
 

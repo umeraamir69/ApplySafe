@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>ApplySafe dashboard</title>
+    <link rel="stylesheet" href="dashboard.css" />
+  </head>
+  <body>
+    <aside>
+      <div class="logo"><img src="icons/icon48.png" width="28" height="28" alt="" /> ApplySafe <span>Extension</span></div>
+      <nav>
+        <button type="button" data-view="overview" class="on">Overview</button>
+        <button type="button" data-view="history">Scan history</button>
+        <button type="button" data-view="trusted">Trusted sites</button>
+        <button type="button" data-view="settings">Settings</button>
+      </nav>
+      <p class="device">On this device. No account.</p>
+    </aside>
+    <main>
+      <section id="overview">
+        <header>
+          <div>
+            <h1>Overview</h1>
+            <p>Reviews saved in this browser. Nothing is uploaded.</p>
+          </div>
+        </header>
+        <div class="cards">
+          <article><span>Risk rate</span><strong id="risk">0%</strong><small>Share of checked listings marked scam</small></article>
+          <article><span>Listings reviewed</span><strong id="checked">0</strong><small>Job pages scanned from the toolbar</small></article>
+          <article><span>High-risk caught</span><strong id="high">0</strong><small>Scam and risky verdicts</small></article>
+          <article><span>Lower-risk found</span><strong id="lower">0</strong><small>Listings with the looks-ok flags</small></article>
+        </div>
+        <section class="panel">
+          <h2>Where you review most</h2>
+          <div id="bars"></div>
+        </section>
+      </section>
+      <section id="history" hidden>
+        <h1>Scan history</h1>
+        <p>Title, site, verdict, and score. The posting text is not kept.</p>
+        <ul id="list"></ul>
+      </section>
+      <section id="trusted" hidden>
+        <h1>Trusted sites</h1>
+        <p>A site on this list still gets scanned. The popup only notes that you listed it.</p>
+        <form id="trust-form">
+          <input id="host" name="host" placeholder="jobs.example.ca" autocomplete="off" />
+          <button type="submit">Add site</button>
+        </form>
+        <ul id="hosts"></ul>
+      </section>
+      <section id="settings" hidden>
+        <h1>Settings</h1>
+        <p>Scans stay in Chrome on this computer. There is no sign-in.</p>
+        <button id="clear" type="button">Clear scan history</button>
+      </section>
+    </main>
+    <script src="history.js"></script>
+    <script src="dashboard.js"></script>
+  </body>
+</html>

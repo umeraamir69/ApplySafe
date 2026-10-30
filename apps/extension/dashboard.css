@@ -1,0 +1,133 @@
+:root {
+  color-scheme: light;
+  --ink: #172033;
+  --muted: #5d6b82;
+  --line: #e4ebf5;
+  --card: #fff;
+  --bg: #f4f7fb;
+  --nav: #10192b;
+  --teal: #14b8a6;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  font: 16px/1.45 Georgia, "Iowan Old Style", serif;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+aside {
+  background: var(--nav);
+  color: #e8eef8;
+  padding: 22px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+  background: #1c2c46;
+  border-radius: 14px;
+  padding: 12px 14px;
+}
+
+.logo img { border-radius: 7px; }
+
+.logo span {
+  display: inline-block;
+  margin-left: 6px;
+  font-size: 12px;
+  color: #9fb0c9;
+}
+
+nav { display: flex; flex-direction: column; gap: 6px; }
+
+nav button {
+  text-align: left;
+  border: 0;
+  background: transparent;
+  color: #d5e2f5;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font: inherit;
+  cursor: pointer;
+}
+
+nav button.on { background: #fff; color: var(--ink); }
+
+.device { margin-top: auto; color: #93a4c0; font-size: 13px; }
+
+main { padding: 28px 32px 48px; }
+
+h1 { margin: 0 0 4px; font-size: 34px; font-weight: 500; }
+h2 { margin: 0 0 14px; font-size: 20px; font-weight: 500; }
+p { color: var(--muted); }
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin: 22px 0;
+}
+
+article, .panel {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 16px;
+}
+
+article span, article small { display: block; color: var(--muted); }
+article strong { display: block; font-size: 32px; margin: 8px 0; color: #243e78; }
+article small { font-size: 13px; }
+
+.bar { display: grid; grid-template-columns: 90px 1fr 48px; gap: 10px; align-items: center; margin: 10px 0; }
+.track { height: 10px; background: #e7eef6; border-radius: 999px; overflow: hidden; }
+.track i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, #5eead4, #2457c5); }
+
+#hosts li { justify-content: flex-start; }
+
+ul { list-style: none; margin: 0; padding: 0; }
+li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.pill { font-size: 13px; }
+.scam { color: #8d2e2e; }
+.risky { color: #8a5a12; }
+.unclear { color: #3d4a57; }
+.looks_ok { color: #1d6a43; }
+
+form { display: flex; gap: 8px; margin: 12px 0 18px; }
+input, button {
+  font: inherit;
+  border-radius: 999px;
+  padding: 8px 14px;
+}
+input { border: 1px solid var(--line); min-width: 240px; }
+button { cursor: pointer; }
+#trust-form button, #clear {
+  background: var(--nav);
+  color: #fff;
+  border: 0;
+}
+.remove { background: transparent; border: 1px solid var(--line); }
+
+@media (max-width: 900px) {
+  body { grid-template-columns: 1fr; }
+  .cards { grid-template-columns: 1fr 1fr; }
+  .device { margin-top: 12px; }
+}

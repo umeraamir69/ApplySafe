@@ -28,6 +28,14 @@ export default function PrivacyPage() {
         verdict, and the rule ids. The message itself is not written down.
       </p>
 
+      <h2>The extension</h2>
+      <p>
+        The Chrome extension runs the rules on your computer. A job-page scan
+        can be saved there: the time, the site, the page title, the verdict,
+        and the score. The posting text is not saved and is not uploaded. There
+        is no email sign-in. Clear the list from the extension dashboard.
+      </p>
+
       <h2>What this is not</h2>
       <p>
         ApplySafe is not legal advice and not an immigration decision. To
