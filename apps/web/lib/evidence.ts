@@ -9,7 +9,7 @@ const WEBMAIL = [
   "tuta.com",
   "tutanota.com",
 ];
-const BRANDS = ["shopify", "rbc", "td", "scotiabank", "amazon", "google", "bell", "air canada", "service canada"];
+const BRANDS = ["shopify", "rbc", "td", "scotiabank", "amazon", "google", "bell", "air canada", "service canada", "ircc", "cra"];
 
 export type Evidence = {
   webmail_as_hr: boolean;
