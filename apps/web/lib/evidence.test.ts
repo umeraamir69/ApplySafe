@@ -20,3 +20,10 @@ test("gmail still works, and a company domain does not", () => {
   assert.equal(corp?.webmail_as_hr, false);
   assert.deepEqual(corp?.notes, []);
 });
+
+  const ircc = evidenceFor({ from_email: "ircc.jobs@gmail.com", company_name: "IRCC" });
+  assert.equal(ircc?.webmail_as_hr, true);
+  assert.equal(ircc?.brand_mismatch, true);
+
+  const cra = evidenceFor({ from_email: "cra.refunds@yahoo.com", company_name: "CRA" });
+  assert.equal(cra?.webmail_as_hr, true);
